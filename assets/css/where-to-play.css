@@ -71,21 +71,6 @@
 
 /* Caret */
 .navbar-default .navbar-nav > .dropdown > a .caret{ display: none; }
-/* .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #ffffff;
-    border-bottom-color: #ffffff;
-}
-.navbar-default .navbar-nav > .dropdown > a:hover .caret,
-.navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: #8a0e0b;
-    border-bottom-color: #8a0e0b;
-}
-.navbar-default .navbar-nav > .open > a .caret,
-.navbar-default .navbar-nav > .open > a:hover .caret,
-.navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #8a0e0b;
-    border-bottom-color: #8a0e0b;
-} */
 /* Caret */
 
 /* Navbar links */
@@ -118,7 +103,6 @@
   .navbar .dropdown-menu{ top:75%; padding: 0;min-width: 200px;}
   /* Dropdown Menu */
 
-  /* .navbar .dropdown-menu > li > a{ color: #8a0e0b;} */
 }
 @media only screen and (max-width: 768px) and (min-width: 768px){
   #bs-example-navbar-collapse-1{
