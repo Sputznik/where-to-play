@@ -89,6 +89,22 @@
 }
 /* Hamburger */
 
+/* White header */
+.white-bg{
+  float: right !important;
+  margin-top:10px;
+  margin-bottom:8px;
+  margin-right:12px;
+}
+.white-bg .btn-blue{
+  padding: 4px 12px;
+  color: #00aeef !important;
+  border-radius: 0;
+  font-weight: bold;
+}
+.white-bg .btn-outline{ border: 1px solid #00aeef;}
+.white-bg span:first-of-type{ margin-left:15px; }
+/* White header */
 
 @media (min-width: 769px) {
   .navbar-nav > li > a {
@@ -125,4 +141,17 @@
   .navbar .dropdown-menu{ background-color: transparent;}
   /* Remove dropdown-menu bg-color for sm-devices */
   .navbar-nav{ margin-top: 0; margin-bottom: 0;}
+  /* White header */
+  .white-bg{ margin-right: 0; text-align: center; float: none !important;}
+  /* White header */
 }
+
+/* White header */
+@media(max-width: 425px){
+  .white-bg .btn-blue, .white-bg span{font-size: 10px;}
+}
+@media(max-width: 375px){
+  .white-bg .btn-blue{ padding: 4px 4px;}
+  .white-bg span:first-of-type{ margin-left:5px;}
+}
+/* White header */

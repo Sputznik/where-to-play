@@ -1,5 +1,13 @@
+<div class="container" style="background-color: #fff;">
+  <div class="white-bg">
+    <a href="#" class="btn btn-blue btn-outline">TRY OUR WEB APP</a>
+    <span>or</span>
+    <a href="#" class="btn btn-blue">DOWNLOAD WORKSHEETS</a>
+    <span>Its Free!</span>
+  </div>
+</div>
 <nav class="navbar navbar-default header5">
-  <div class="container">
+  <div class="container"><!-- .container-->
     <!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
