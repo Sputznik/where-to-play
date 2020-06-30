@@ -30,7 +30,7 @@
 /* Navbar brand */
 
 /* Navbar links */
-.navbar-default .navbar-nav > li > a {color: #6f7b8d;}
+.navbar-default .navbar-nav > li > a {color: #6f7b8d; font-weight: bold; }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;
@@ -53,6 +53,10 @@
   color: #ffffff;
   background-color: #0a1b35;
 }
+/* Highlight Parent Menu Item while Child Menu Item is active */
+.navbar-nav>li.dropdown.current-menu-ancestor>a{ color: #ffffff; }
+/* Highlight Parent Menu Item while Child Menu Item is active */
+
 /* Active dropdown item */
 
 .navbar .dropdown-menu>.active>a,
@@ -96,6 +100,7 @@
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #ffffff;
+    height: 4px;
 }
 /* Hamburger */
 
@@ -135,4 +140,5 @@
   /* Remove dropdown-menu bg-color for sm-devices */
   .navbar .dropdown-menu{ background-color: transparent;}
   /* Remove dropdown-menu bg-color for sm-devices */
+  .navbar-nav{ margin-top: 0; margin-bottom: 0;}
 }
