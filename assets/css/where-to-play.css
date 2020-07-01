@@ -1,5 +1,5 @@
 /* Ovverride default BS3 styles */
-.navbar { min-height: 80px;}
+.navbar { min-height: 80px; margin-bottom: 0;}
 
 .navbar-brand {
   padding: 0 15px;
@@ -13,8 +13,14 @@
   padding: 9px 10px !important;
 }
 
-/* Ovverride font styles */
+.sticky-transparent-header {transition: 500ms ease;}
+.sticky-transparent-header.affix{
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
 
+/* Ovverride font styles */
 .navbar-default {
   background-color: #1f2939;
   border: none;
@@ -23,10 +29,6 @@
 
 /* Navbar brand */
 .navbar-default .navbar-brand {color: #ffffff;}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #8a0e0b;
-}
 /* Navbar brand */
 
 /* Navbar links */
@@ -121,7 +123,8 @@
 
 }
 @media only screen and (max-width: 768px) and (min-width: 768px){
-  #bs-example-navbar-collapse-1{
+  #bs-example-navbar-collapse-1,
+  .navbar.header5 > .container-fluid{
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -140,6 +143,7 @@
   /* Remove dropdown-menu bg-color for sm-devices */
   .navbar .dropdown-menu{ background-color: transparent;}
   /* Remove dropdown-menu bg-color for sm-devices */
+  .navbar .dropdown-menu>li>a{ color: #6f7b8d;font-weight: bold !important; }
   .navbar-nav{ margin-top: 0; margin-bottom: 0;}
   /* White header */
   .white-bg{ margin-right: 0; text-align: center; float: none !important;}
