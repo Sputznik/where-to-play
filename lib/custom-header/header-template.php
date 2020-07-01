@@ -1,4 +1,4 @@
-<div class="sticky-transparent-header" data-spy="affix">
+<div class="sticky-transparent-header" data-spy="affix" data-offset-top="130">
   <div class="container-fluid sticky-transparent" style="background-color: #fff;">
     <div class="white-bg">
       <a href="#" class="btn btn-blue btn-outline">TRY OUR WEB APP</a>
