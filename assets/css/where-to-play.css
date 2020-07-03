@@ -98,13 +98,13 @@
   margin-bottom:8px;
   margin-right:12px;
 }
-.white-bg .btn-blue{
+.btn-blue{
   padding: 4px 12px;
   color: #00aeef !important;
   border-radius: 0;
   font-weight: bold;
 }
-.white-bg .btn-outline{ border: 1px solid #00aeef;}
+.btn-outline{ border: 1px solid #00aeef;}
 .white-bg span:first-of-type{ margin-left:15px; }
 /* White header */
 
@@ -152,10 +152,10 @@
 
 /* White header */
 @media(max-width: 425px){
-  .white-bg .btn-blue, .white-bg span{font-size: 10px;}
+  .btn-blue, .white-bg span{font-size: 10px;}
 }
 @media(max-width: 375px){
-  .white-bg .btn-blue{ padding: 4px 4px;}
+  .btn-blue{ padding: 4px 4px;}
   .white-bg span:first-of-type{ margin-left:5px;}
 }
 /* White header */
