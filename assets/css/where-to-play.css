@@ -104,8 +104,8 @@
   border-radius: 0;
   font-weight: bold;
 }
-.btn-outline{ border: 1px solid #00aeef;}
-.white-bg span:first-of-type{ margin-left:15px; }
+.btn-outline{ border: 1px solid #00aeef; margin-right: 15px; }
+/*.white-bg span:first-of-type{ margin-left:15px; }*/
 /* White header */
 
 @media (min-width: 769px) {
@@ -156,6 +156,6 @@
 }
 @media(max-width: 375px){
   .btn-blue{ padding: 4px 4px;}
-  .white-bg span:first-of-type{ margin-left:5px;}
+  /*.white-bg span:first-of-type{ margin-left:5px;}*/
 }
 /* White header */
