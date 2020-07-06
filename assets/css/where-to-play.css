@@ -267,7 +267,11 @@ ul.blue-list li::before {
 
 @media( max-width: 500px ){
 	.list-web-btns{ font-size: 12px; }
-	.list-web-btns .or-text, .list-web-btns .free-text{ display: none;}
+	.list-web-btns .free-text{ display: none;}
+	.list-web-btns .or-text{ padding-left: 0; padding-right: 0; }
+}
+@media( max-width: 300px ){
+	.list-web-btns{ font-size: 11px; }
 }
 
 /* list-web-btns */
