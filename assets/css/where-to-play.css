@@ -105,18 +105,12 @@ h2{ font-weight: 800;}
 
 /* White header */
 .white-bg{
-  float: right !important;
-  margin-top:10px;
-  margin-bottom:8px;
-  margin-right:12px;
+  float					: right !important;
+  margin-top		: 10px;
+  margin-bottom	: 10px;
+  margin-right	: 12px;
 }
-.btn-blue{
-  padding: 4px 12px;
-  color: #00aeef !important;
-  border-radius: 0;
-  font-weight: bold;
-}
-.btn-outline{ border: 1px solid #00aeef; margin-right: 15px; }
+
 /*.white-bg span:first-of-type{ margin-left:15px; }*/
 /* White header */
 
@@ -245,3 +239,30 @@ ul.blue-list li::before {
   bottom: -20px;
   font-weight: bold;
 }
+
+/* list-web-btns */
+.list-web-btns{
+	font-size: 14px;
+	line-height: 17px;
+	margin-bottom: 0;
+}
+.list-web-btns .anchor-blue{
+  color: #00aeef !important;
+  border-radius: 0;
+  font-weight: bold;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+.list-web-btns .btn-blue-outline{
+	border: 1px solid #00aeef;
+	color: #00aeef !important;
+	border-radius: 2px;
+	display: inline-block;
+	padding: 4px 12px;
+	font-weight: 700;
+	text-decoration: none;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+/* list-web-btns */

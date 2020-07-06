@@ -2,7 +2,7 @@
 
 /*ENQUEUE STYLES*/
 add_action('wp_enqueue_scripts',function(){
-  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.3' );
+  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.4' );
 },99);
 
 //Include Files
@@ -18,3 +18,17 @@ add_filter( 'sp_list_google_fonts', function( $fonts ){
     );
   return $fonts;
 });
+
+
+add_shortcode( 'wtp_web_btns', function(){
+	ob_start();
+	?>
+	<ul class='list-inline list-web-btns'>
+		<li><a href="#" class="btn-blue-outline">TRY OUR WEB APP</a></li>
+		<li class='or-text'><span>or</span></li>
+		<li><a href="#" class="anchor-blue">DOWNLOAD WORKSHEETS</a></li>
+		<li class='free-text'><span>Its Free!</span></li>
+	</ul>
+	<?php
+	return ob_get_clean();
+} );

@@ -1,10 +1,7 @@
 <div class="container-fluid" style="background-color: #fff;">
   <div class="white-bg">
-    <a href="#" class="btn btn-blue btn-outline">TRY OUR WEB APP</a>
-    <span>or</span>
-    <a href="#" class="btn btn-blue">DOWNLOAD WORKSHEETS</a>
-    <span>Its Free!</span>
-  </div>
+		<?php _e( do_shortcode( '[wtp_web_btns]' ) );?>
+	</div>
 </div>
 <div class="sticky-transparent-header" data-spy="affix" data-offset-top="50">
   <nav class="navbar navbar-default header5">
