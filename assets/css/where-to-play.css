@@ -1,3 +1,15 @@
+.container{ max-width: 1020px; }
+
+body{ font-size: 16px; line-height: 28px;}
+
+p{ margin-bottom: 20px; }
+
+h1{ font-weight: bold;}
+h2{ font-weight: 800;}
+
+.georgia{ font-family: georgia;}
+.italic{ font-size: 20px; line-height: 24px; font-style: italic; }
+
 /* Ovverride default BS3 styles */
 .navbar { min-height: 80px; margin-bottom: 0;}
 
@@ -159,3 +171,77 @@
   /*.white-bg span:first-of-type{ margin-left:5px;}*/
 }
 /* White header */
+
+
+
+/* BLUE DOTS LIST ITEMS - HORIZONTAL LIST IN DESKTOP BUT VERTICAL IN MOBILE */
+.blue-dots-list{
+	font-size: 24px;
+  line-height: 20px;
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+  text-align: center;
+}
+.blue-dots-list li{
+	display: inline-block;
+  padding-right: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+.blue-dots-list li::after{
+	content: "";
+  background: #00AEEF;
+  position: absolute;
+	width: 8px;
+	height: 8px;
+  right: -7px;
+  top: 5px;
+  border-radius: 50%;
+}
+.blue-dots-list li:nth-child(3)::after{ display: none;}
+
+@media (max-width:768px){
+  .blue-dots-list {
+  	text-align:left;
+  	padding-left:6px;
+    line-height: 28px;
+ 	}
+  .blue-dots-list li{margin-top:10px;}
+  .blue-dots-list li::after{
+  	left: 0px;
+    top: 5px;
+  }
+  .blue-dots-list li:nth-child(3)::after{ display: block;}
+}
+/* BLUE DOTS LIST ITEMS */
+
+/* SIMPLE BLUE LIST */
+ul.blue-list{
+	font-size: 18px;
+  line-height: 28px;
+  list-style: none;
+  color: #0A1B35;
+}
+
+ul.blue-list li{
+	margin-bottom: 20px;
+  position: relative;
+}
+ul.blue-list li::before {
+  content: "";
+  background: #00AEEF;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  left: -25px;
+  top: 8px;
+  border-radius: 50%;
+}
+/* SIMPLE BLUE LIST */
+
+.blue-btn-fixed-bottom{
+	position: absolute;
+  bottom: -20px;
+  font-weight: bold;
+}
