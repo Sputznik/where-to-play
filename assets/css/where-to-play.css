@@ -249,7 +249,7 @@ ul.blue-list li::before {
 .list-web-btns .anchor-blue{
   color: #00aeef !important;
   border-radius: 0;
-  font-weight: bold;
+  font-weight: 500;
 	box-sizing: border-box;
 	vertical-align: middle;
 }
@@ -259,7 +259,7 @@ ul.blue-list li::before {
 	border-radius: 2px;
 	display: inline-block;
 	padding: 4px 12px;
-	font-weight: 700;
+	font-weight: 500;
 	text-decoration: none;
 	box-sizing: border-box;
 	vertical-align: middle;
