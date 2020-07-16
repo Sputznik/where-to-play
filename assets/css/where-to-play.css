@@ -267,6 +267,9 @@ ul.blue-list li::before {
 	vertical-align: middle;
 	background: #fff;
 }
+.list-web-btns .btn-blue-outline:hover{
+	background: #E6F7FD;
+}
 
 @media( max-width: 500px ){
 	.list-web-btns{ font-size: 12px; }
