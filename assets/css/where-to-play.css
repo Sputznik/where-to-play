@@ -2,10 +2,12 @@
 
 body{ font-size: 16px; line-height: 28px;}
 
+b, strong{ font-weight: 500; }
+
 p{ margin-bottom: 20px; }
 
 h1{ font-weight: bold;}
-h2{ font-weight: 800;}
+h2{ font-weight: 500;}
 
 .georgia{ font-family: georgia;}
 .italic{ font-size: 20px; line-height: 24px; font-style: italic; }
@@ -44,7 +46,7 @@ h2{ font-weight: 800;}
 /* Navbar brand */
 
 /* Navbar links */
-.navbar-default .navbar-nav > li > a {color: #6f7b8d; font-weight: bold; }
+.navbar-default .navbar-nav > li > a {color: #6f7b8d; font-weight: 500; }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;
@@ -263,6 +265,7 @@ ul.blue-list li::before {
 	text-decoration: none;
 	box-sizing: border-box;
 	vertical-align: middle;
+	background: #fff;
 }
 
 @media( max-width: 500px ){
