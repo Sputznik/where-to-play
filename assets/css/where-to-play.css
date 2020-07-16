@@ -254,6 +254,7 @@ ul.blue-list li::before {
   font-weight: 500;
 	box-sizing: border-box;
 	vertical-align: middle;
+	text-decoration: none;
 }
 .list-web-btns .btn-blue-outline{
 	border: 1px solid #00aeef;
