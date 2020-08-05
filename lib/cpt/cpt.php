@@ -9,7 +9,7 @@ add_filter( 'orbit_post_type_vars', function( $orbit_types ){
 			'name' 					=> 'Resources',
 			'singular_name' => 'Resource',
 		),
-		// 'menu_icon'	=> 'dashicons-video-alt3',
+		'menu_icon'	=> 'dashicons-format-aside',
 		'public'		=> true,
 		'supports'	=> array( 'title', 'editor','thumbnail','excerpt' )
 	);
@@ -39,3 +39,23 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 
 	return $meta_box;
 });
+
+/* PUSH INTO THE GLOBAL VARS OF ORBIT TAXNOMIES */
+add_filter( 'orbit_taxonomy_vars', function( $orbit_tax ){
+
+  $resources_taxonomies = array(
+    'resource_types'    => 'Resource Types',
+    'roles'       	 		=> 'Roles'
+  );
+
+  foreach( $resources_taxonomies as $slug => $label ){
+    $orbit_tax[ $slug ]	= array(
+      'label'			  => $label,
+      'slug' 			  => $slug,
+      'post_types'	=> array( 'resources' )
+    );
+  }
+
+  return $orbit_tax;
+
+} );
