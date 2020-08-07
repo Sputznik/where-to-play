@@ -3,8 +3,8 @@
 // CREATES CUSTOM POST TYPE
 add_filter( 'orbit_post_type_vars', function( $orbit_types ){
 
-	$orbit_types['resources'] = array(
-		'slug' 		=> 'resources',
+	$orbit_types['resource'] = array(
+		'slug' 		=> 'resource',
 		'labels'	=> array(
 			'name' 					=> 'Resources',
 			'singular_name' => 'Resource',
@@ -20,7 +20,7 @@ add_filter( 'orbit_post_type_vars', function( $orbit_types ){
 //CREATES META FIELDS
 add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 
-	$meta_box['resources'] = array(
+	$meta_box['resource'] = array(
 		array(
 			'id'			=> 'resources-meta-field',
 			'title'		=> 'Additional Information',
@@ -52,7 +52,7 @@ add_filter( 'orbit_taxonomy_vars', function( $orbit_tax ){
     $orbit_tax[ $slug ]	= array(
       'label'			  => $label,
       'slug' 			  => $slug,
-      'post_types'	=> array( 'resources' )
+      'post_types'	=> array( 'resource' )
     );
   }
 
