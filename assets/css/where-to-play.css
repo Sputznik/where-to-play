@@ -264,7 +264,9 @@ h2{ font-weight: 500;}
 }
 /* White header */
 
-
+@media (max-width: 320px) {
+  .resource-meta {height: 148px;}
+}
 
 /* BLUE DOTS LIST ITEMS - HORIZONTAL LIST IN DESKTOP BUT VERTICAL IN MOBILE */
 .blue-dots-list{
