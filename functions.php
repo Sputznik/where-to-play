@@ -5,7 +5,7 @@ add_action('wp_enqueue_scripts',function(){
 
 	wp_enqueue_style('rubik-google-fonts', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap', array('sp-core-style'), '1.0.4' );
 
-  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.11' );
+  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.12' );
 },99);
 
 //Include Files
@@ -56,3 +56,44 @@ function excerpt( $limit ) {
 
 	return $excerpt;
 }
+
+/* CREATE ATTS ARRAY FROM DEFAULT AND USER PARAMETERS IN THE SHORTCODE */
+add_shortcode( 'filter_terms', function( $atts ){
+  $atts = shortcode_atts( array(
+    'taxonomy' 	=> '',
+  ), $atts, 'filter_terms' );
+
+  global $post;
+
+	$term_list = get_terms( array(
+    'taxonomy' => $atts['taxonomy'],
+    'hide_empty' => false,
+	));
+
+
+  $final_terms = array();
+
+  $parent_terms = array();
+
+  // ITERATING THE LIST TO FIND ONLY PARENT TERMS
+  foreach( $term_list as $term ){
+    if( $term->parent == 0 ){
+			  $final_terms[$term->term_id] = "<a href='#' class='btn btn-sm' data-term='".$term->slug."'>" . $term->name . "</a>";
+    }
+  }
+
+  foreach( $final_terms as $final_term ){
+    array_push( $parent_terms, $final_term );
+  }
+
+	$data_term = 'all-roles';
+	if( $atts['taxonomy'] === 'resource_types' ){$data_term = 'all-resource-types';}
+
+  $html = "<ul class='filter-btn-wrapper list-unstyled'>";
+	$html .= "<li class='active-filter'><a class='btn btn-sm' data-term='".$data_term."'>All</a></li>";
+	$html .= "<li>".implode("</li><li>", $parent_terms )."</li>";
+  $html .= "</ul>";
+
+  return $html;
+
+});

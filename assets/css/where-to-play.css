@@ -200,6 +200,51 @@ h2{ font-weight: 500;}
 .page-numbers.dots{color: #1f2939;}
 /* PAGINATION */
 
+
+/* FILTERS */
+.filters{ padding-top: 50px; padding-bottom: 50px; }
+.filters .roles{ margin-bottom: 16px;}
+.filters .filter-by{
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #3b495e;
+  margin-right: 20px;
+}
+
+.filters .filter-by,
+.filters .filter-btn-wrapper,
+.filters .filter-btn-wrapper li{
+  display: inline-block;
+}
+
+.filters .filter-btn-wrapper li{ margin-right: 12px;}
+
+.filters .filter-btn-wrapper li > a.btn{
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 4px 8px;
+  text-align: center;
+  color: #3b495e;
+  background-color: #ffffff;
+  border: 1px solid #e7e8eb;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.filters .filter-btn-wrapper li > a.btn:focus{outline: none;}
+.filters .filter-btn-wrapper li > a.btn:active{ box-shadow: none;}
+.filters li.active-filter > a.btn{
+  color: #ffffff;
+  background: #3b495e;
+  border: 1px solid #3b495e;
+}
+/* FILTERS */
+
 @media (min-width: 769px) {
   .navbar-nav > li > a {
     /* (80px - line-height of 27px) / 2 = 26.5px */
@@ -222,6 +267,14 @@ h2{ font-weight: 500;}
   /* ARTICLES RESOURCES GRID */
 
 }
+
+@media(max-width: 991px){
+  /* FILTERS */
+  .filters .filter-by,
+  .filters .filter-btn-wrapper li{ margin-bottom: 10px;}
+  /* FILTERS */
+}
+
 @media only screen and (max-width: 768px) and (min-width: 768px){
   #bs-example-navbar-collapse-1,
   .navbar.header5 > .container-fluid{
