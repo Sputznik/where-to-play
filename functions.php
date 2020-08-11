@@ -90,7 +90,7 @@ add_shortcode( 'filter_terms', function( $atts ){
 	if( $atts['taxonomy'] === 'resource_types' ){$data_term = 'all-resource-types';}
 
   $html = "<ul class='filter-btn-wrapper list-unstyled'>";
-	$html .= "<li class='active-filter'><a class='btn btn-sm' data-term='".$data_term."'>All</a></li>";
+	$html .= "<li><a class='btn btn-sm' data-term='".$data_term."'>All</a></li>";
 	$html .= "<li>".implode("</li><li>", $parent_terms )."</li>";
   $html .= "</ul>";
 
