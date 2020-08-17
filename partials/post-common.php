@@ -28,7 +28,7 @@
       <?php echo excerpt( $excerpt_length ); ?>
     </div>
   </div>
-  <a class="btn btn-redirect" href="<?php _e( $redirect_text );?>" target="_blank">
+  <a class="btn btn-redirect" href="<?php _e( $redirect_url );?>" target="_blank">
     <?php _e( $redirect_text );?>
   </a>
 </div>
