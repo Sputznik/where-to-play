@@ -214,6 +214,8 @@ h2{ font-weight: 500;}
   margin-right: 20px;
 }
 
+.filters .filter-btn-wrapper{ padding: 0;}
+
 .filters .filter-by,
 .filters .filter-btn-wrapper,
 .filters .filter-btn-wrapper li{
@@ -237,12 +239,26 @@ h2{ font-weight: 500;}
   border-radius: 2px;
 }
 .filters .filter-btn-wrapper li > a.btn:focus{outline: none;}
-.filters .filter-btn-wrapper li > a.btn:active{ box-shadow: none;}
-.filters li.active-filter > a.btn{
+.filters .filter-btn-wrapper li > a.btn:active,
+.filters .filter-btn-wrapper li > a.btn.active{ box-shadow: none;}
+.filters .filter-btn-wrapper li > a.btn.active{
   color: #ffffff;
   background: #3b495e;
   border: 1px solid #3b495e;
 }
+
+.filters .filter-error{
+  display: none;
+  position: relative;
+  height: 200px;
+}
+.filters .filter-error h2{
+  color: #3b495e;
+  display: inline-block;
+  margin: 0;
+  position: absolute;
+}
+.nested-filters #archive-results{padding-top: 20px;}
 /* FILTERS */
 
 @media (min-width: 769px) {
@@ -266,6 +282,15 @@ h2{ font-weight: 500;}
   }
   /* ARTICLES RESOURCES GRID */
 
+  /* FILTERS */
+  .filters .filter-error h2{
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%,-50%);
+  }
+  /* FILTERS */
 }
 
 @media(max-width: 991px){
@@ -282,6 +307,15 @@ h2{ font-weight: 500;}
     padding-left: 0px;
   }
   .navbar-right{ margin-right: 0; }
+  /* FILTERS */
+  .filters .filter-error h2{
+    top: 50% !important;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) !important;
+  	-ms-transform: translate(-50%, -50%) !important;
+  	transform: translate(-50%,-50%) !important;
+  }
+  /* FILTERS */
 }
 
 @media(max-width: 768px){
@@ -304,6 +338,16 @@ h2{ font-weight: 500;}
   /* ARTICLES RESOURCES GRID */
   .articles-resources .orbit-article{margin-bottom: 30px;}
   /* ARTICLES RESOURCES GRID */
+
+  /* FILTERS */
+  .filters .filter-error h2{
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+  }
+  /* FILTERS */
 
 }
 
