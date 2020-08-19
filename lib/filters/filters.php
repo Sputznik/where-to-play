@@ -18,7 +18,7 @@
 		}
 
 		function assets(){
-			wp_enqueue_script('filters-script', get_stylesheet_directory_uri().'/assets/js/filters.js', array('jquery'), '1.0.0', true );
+			wp_enqueue_script('filters-script', get_stylesheet_directory_uri().'/assets/js/filters.js', array('jquery'), '1.0.1', true );
 		}
 
 	}

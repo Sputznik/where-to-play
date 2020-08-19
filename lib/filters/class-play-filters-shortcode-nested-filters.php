@@ -51,7 +51,7 @@
 				if( $global_text ):
 
 				?>
-				<li class="universal-filter filter-btn-wrapper">
+				<li class="universal-filter">
 					<a href="#" class="btn btn-sm"  data-filter='universal'><?php _e( $global_text );?></a>
 				</li>
 				<?php endif;

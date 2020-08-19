@@ -12,10 +12,15 @@ $.fn.double_filters = function(){
 			ev.preventDefault();											/* PREVENT DEFAULT EVENT */
 			var $menu_target = $( ev.target );				/* GET MENU ITEM */
 
-			/* RESET THE UNIVERSAL SELECTOR IF ACTIVE */
-				var universal_filter = $menu_target.parent().siblings('.universal-filter');
-				$(universal_filter).find('[data-filter~=universal].active').removeClass('active');
-			/* RESET THE UNIVERSAL SELECTOR IF ACTIVE */
+			/* RESET ALL THE FILTERS IF UNIVERSAL SELECTOR IS ACTIVE */
+				var universal_filter = $menu_target.parent().siblings('.universal-filter').find('[data-filter~=universal].active').length;
+
+				if(universal_filter){
+					$menu_target.removeClass('active inactive');
+					$menu_target.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
+				}
+
+			/* RESET ALL THE FILTERS IF UNIVERSAL SELECTOR IS ACTIVE */
 
 			$menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
 			$el.filter_items();												/* FILTER ITEMS */
@@ -28,8 +33,12 @@ $.fn.double_filters = function(){
 			ev.preventDefault();
 			var $menu_target = $( ev.target );
 			$menu_target.addClass('active');
-			$menu_target.parent().siblings().find('.active').removeClass('active'); /* RESET ALL SELECTED FILTERS IN THAT ROW */
+
+			/* ACTIVATE ALL FILTERS IN THAT ROW AND REMOVE BG COLOR */
+			$menu_target.parent().siblings('li').find('.btn.btn-sm').addClass('active inactive');
+
 			$el.filter_items();
+
 		};
 		/* UNIVERSAL SELECTOR */
 
@@ -46,7 +55,7 @@ $.fn.double_filters = function(){
 					id 		= $(selectedFilter).data('id');
 
 				if( tax != undefined && id != undefined ){
-					selector.push("[data-" + tax + "~=" + id + "]");
+					selector.push("[data-item][data-" + tax + "~=" + id + "]");
 				}
 
 			});
@@ -60,26 +69,29 @@ $.fn.double_filters = function(){
 
 			var $primary_filter 		= [],
 					$secondary_filter 	= [],
-					$multi_filters 			= [];
+					$multi_filters 			= '';
+			var active_primary_filters = $el.find('[data-filter~=primary].active').length,
+					active_secondary_filters = $el.find('[data-filter~=secondary].active').length;
+
+			// console.log(active_primary_filters,active_secondary_filters);
 
 			/* BUILD PRIMARY FILTER */
-			if( $el.find('[data-filter~=primary].active').length ){ $primary_filter = $el.filter_selector('primary'); }
+			if( active_primary_filters ){ $primary_filter = $el.filter_selector('primary'); }
 
 			/* BUILD SECONDARY FILTER */
-			if( $el.find('[data-filter~=secondary].active').length ){ $secondary_filter = $el.filter_selector('secondary'); }
+			if( active_secondary_filters ){ $secondary_filter = $el.filter_selector('secondary'); }
 
 			$target.html( html );						/* reset html elements */
 
-			if( $primary_filter || $secondary_filter ){
+			if( active_primary_filters || active_secondary_filters ){
 
 				/* MERGE PRIMARY AND SECONDARY FILTERS FOR FASTER FILTERING */
-				$multi_filters = $primary_filter.concat($secondary_filter);
+				$multi_filters = $primary_filter.concat($secondary_filter).toString();
 
 				/* REMOVE THE IRRELEVANT POSTS */
-				$($multi_filters).each(function(index){
-						$target.find('[data-item]:not(' + $multi_filters[index] + ")" ).remove();
-				});
+				$target.find("[data-item]:not("+$multi_filters+")").remove();
 
+				// SHOW ERROR MESSAGE
 				if($target.find('[data-item]').length === 0){
 					$('#archive-results').find('.filter-error').show();
 				}

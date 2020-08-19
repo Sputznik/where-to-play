@@ -241,11 +241,18 @@ h2{ font-weight: 500;}
 .filters .filter-btn-wrapper li > a.btn:focus{outline: none;}
 .filters .filter-btn-wrapper li > a.btn:active,
 .filters .filter-btn-wrapper li > a.btn.active{ box-shadow: none;}
-.filters .filter-btn-wrapper li > a.btn.active{
+.filters .filter-btn-wrapper li > a.btn.active
+{
   color: #ffffff;
   background: #3b495e;
   border: 1px solid #3b495e;
 }
+.filters .filter-btn-wrapper li > a.btn.inactive{
+  color: #3b495e;
+  background-color: #ffffff;
+  border: 1px solid #e7e8eb;
+}
+
 
 .filters .filter-error{
   display: none;
