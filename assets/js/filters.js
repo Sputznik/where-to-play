@@ -12,15 +12,25 @@ $.fn.double_filters = function(){
 			ev.preventDefault();											/* PREVENT DEFAULT EVENT */
 			var $menu_target = $( ev.target );				/* GET MENU ITEM */
 
-			/* RESET ALL THE FILTERS IF UNIVERSAL SELECTOR IS ACTIVE */
-				var universal_filter = $menu_target.parent().siblings('.universal-filter').find('[data-filter~=universal].active').length;
+			/* RESET ALL THE FILTERS IF BOTH UNIVERSAL SELECTORS ARE ACTIVE */
 
-				if(universal_filter){
-					$menu_target.removeClass('active inactive');
-					$menu_target.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
+				var universal_filter = $el.find('[data-filter~=universal].active').length;
+
+				if(universal_filter == 1 ){
+						var	target_id = $menu_target.data('id'),
+								clickedTarget = $el.find('.inactive[data-id="'+target_id+'"]');
+
+
+						clickedTarget.removeClass('inactive').toggleClass('active');
+						clickedTarget.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
 				}
 
-			/* RESET ALL THE FILTERS IF UNIVERSAL SELECTOR IS ACTIVE */
+				if(universal_filter == 2 ){
+					$menu_target.removeClass('active inactive');
+					$el.find('.btn.btn-sm').removeClass('active inactive');
+				}
+
+			/* RESET ALL THE FILTERS IF BOTH UNIVERSAL SELECTORS ARE ACTIVE */
 
 			$menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
 			$el.filter_items();												/* FILTER ITEMS */
@@ -71,7 +81,8 @@ $.fn.double_filters = function(){
 					$secondary_filter 	= [],
 					$multi_filters 			= '';
 			var active_primary_filters = $el.find('[data-filter~=primary].active').length,
-					active_secondary_filters = $el.find('[data-filter~=secondary].active').length;
+					active_secondary_filters = $el.find('[data-filter~=secondary].active').length,
+					filters_length = active_primary_filters + active_secondary_filters ;
 
 			// console.log(active_primary_filters,active_secondary_filters);
 
@@ -82,6 +93,8 @@ $.fn.double_filters = function(){
 			if( active_secondary_filters ){ $secondary_filter = $el.filter_selector('secondary'); }
 
 			$target.html( html );						/* reset html elements */
+
+			if( filters_length == 0 ){ $el.find('[data-filter~=universal]').addClass('active'); }
 
 			if( active_primary_filters || active_secondary_filters ){
 
