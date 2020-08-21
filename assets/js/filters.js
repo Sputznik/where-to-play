@@ -116,6 +116,10 @@ $.fn.double_filters = function(){
 
 		/* HANDLE CLICK EVENTS */
 
+		// BY DEFAULT SELECT THE UNIVERSAL FILTERS
+		$el.find('[data-filter~=universal]').click();
+
+
 	});
 }
 
