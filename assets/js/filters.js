@@ -12,31 +12,41 @@ $.fn.double_filters = function(){
 			ev.preventDefault();											/* PREVENT DEFAULT EVENT */
 			var $menu_target = $( ev.target );				/* GET MENU ITEM */
 
-			/* RESET ALL THE FILTERS IF BOTH UNIVERSAL SELECTORS ARE ACTIVE */
+      var universal_filter 						= $menu_target.parent().siblings('.universal-filter');
+			var selected_universal_filter 	= universal_filter.find('[data-filter~=universal].active').length;
 
-				var universal_filter = $el.find('[data-filter~=universal].active').length;
+      if(selected_universal_filter){
+				$menu_target.removeClass('active inactive');
+				$menu_target.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
+        $menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
+      }
 
-				if(universal_filter == 1 ){
-						var	target_id = $menu_target.data('id'),
-								clickedTarget = $el.find('.inactive[data-id="'+target_id+'"]');
+      else{
+        $menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
+        $el.isEmpty_filters( $menu_target.data('filter') );
+      }
+
+      $el.filter_items();			/* FILTER ITEMS */
 
 
-						clickedTarget.removeClass('inactive').toggleClass('active');
-						clickedTarget.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
-				}
-
-				if(universal_filter == 2 ){
-					$menu_target.removeClass('active inactive');
-					$el.find('.btn.btn-sm').removeClass('active inactive');
-				}
-
-			/* RESET ALL THE FILTERS IF BOTH UNIVERSAL SELECTORS ARE ACTIVE */
-
-			$menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
-			$el.filter_items();												/* FILTER ITEMS */
 
 		};
 		/* ACTIVE MENU ITEM */
+
+    /* IF NO FILTERS ARE ACTIVE */
+    $el.isEmpty_filters = function(type){
+
+      /* FIND THE LENGTH OF ACTIVE FILTERS */
+      var active_filters = $el.find('[data-filter~='+type+'].active').length;
+
+      /* SELECT ALL FILTERS IN THAT ROW AND REMOVE BG COLOR */
+      if(!active_filters){
+  			 var universal_filter = $('.'+type+'-filter-list').find('[data-filter~=universal]');
+  			 universal_filter.addClass('active');
+  			 universal_filter.parent().siblings('li').find('.btn.btn-sm').addClass('active inactive');
+      }
+
+		};
 
 		/* UNIVERSAL SELECTOR */
 		$el.universal_menu_item = function( ev ){
@@ -65,7 +75,8 @@ $.fn.double_filters = function(){
 					id 		= $(selectedFilter).data('id');
 
 				if( tax != undefined && id != undefined ){
-					selector.push("[data-item][data-" + tax + "~=" + id + "]");
+					// selector.push("[data-item][data-" + tax + "~=" + id + "]");
+          selector.push("[data-" + tax + "~=" + id + "]");
 				}
 
 			});
@@ -73,6 +84,28 @@ $.fn.double_filters = function(){
 			return selector;
 		}
 		/* FILTER SELECTOR TEXT */
+
+		// SELECTED CATEGORIES ID
+		$el.filter_selector_id = function( filter_type ){
+
+			$active_filter = $el.find('[data-filter~=' + filter_type + '].active');
+
+			var selector 	= [];
+
+			$active_filter.each(function( index, selectedFilter ){
+
+				var tax = $(selectedFilter).data('tax'),
+					id 		= $(selectedFilter).data('id');
+
+				if( tax != undefined && id != undefined ){
+					selector.push(id);
+				}
+
+			});
+
+			return selector;
+		}
+		// SELECTED CATEGORIES ID
 
 		/* FILTER ITEMS */
 		$el.filter_items = function(){
@@ -98,11 +131,61 @@ $.fn.double_filters = function(){
 
 			if( active_primary_filters || active_secondary_filters ){
 
-				/* MERGE PRIMARY AND SECONDARY FILTERS FOR FASTER FILTERING */
-				$multi_filters = $primary_filter.concat($secondary_filter).toString();
+				// /* MERGE PRIMARY AND SECONDARY FILTERS FOR FASTER FILTERING */
+				// $multi_filters = $primary_filter.concat($secondary_filter).toString();
+
+
+				$multi_filters = $primary_filter.concat($secondary_filter);
+
+
+				// console.log($multi_filters, $multi_filters.join('') );
 
 				/* REMOVE THE IRRELEVANT POSTS */
-				$target.find("[data-item]:not("+$multi_filters+")").remove();
+				// $target.find("[data-item]:not("+$multi_filters+")").remove();
+
+        /* WHEN BOTH PRIMARY AND SELECTORS ARE SELECTED */
+        // if( $el.find('[data-filter~=universal].active').length === 0 ){
+
+					var resource_type_filters = $el.filter_selector_id('primary');
+					var roles_filters = $el.filter_selector_id('secondary');
+
+					// console.log(resource_type_filters);
+
+					var finalArr = [];
+
+
+					$target.find("[data-item]").filter( function( i,item ){
+
+						var $item = $(this);
+
+						for (var i = 0; i < resource_type_filters.length; i++) {
+
+							 var catFilter = resource_type_filters[i];
+
+							 for (var j = 0; j < roles_filters.length; j++) {
+
+								 var roleFilter = roles_filters[j];
+
+								 if( $item.is('[data-resource_types*=' + catFilter + ']' ) && $item.is('[data-roles*=' + roleFilter + ']' ) ) {
+									 	finalArr.push('[id='+$item.attr('id')+']');
+								 }
+
+							 }
+
+						}
+
+					});
+
+					/* REMOVE THE IRRELEVANT POSTS */
+					$target.find("[data-item]:not("+finalArr.toString()+")").remove();
+
+
+					// $target.find("[data-item]:not("+$multi_filters+")").remove();
+
+					// $target.find("[data-item]:not("+$multi_filters+")").remove();
+
+        // }
+
 
 				// SHOW ERROR MESSAGE
 				if($target.find('[data-item]').length === 0){
