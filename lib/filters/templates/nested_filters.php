@@ -13,7 +13,7 @@
 	<?php endif;?>
 	<div id='archive-results'>
 		<div class="filter-error">
-			<h2 class='text-center'>No resources found!!!!</h2>
+			<h2 class='text-center'>No resources found</h2>
 		</div>
 	<?php
 		$filters = array( $atts['primary_filter'], $atts['secondary_filter'] );
