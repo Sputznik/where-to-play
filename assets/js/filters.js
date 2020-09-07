@@ -6,21 +6,21 @@ $.fn.double_filters = function(){
 			html 						= $target.html();
 
 
-
 		/* ACTIVE MENU ITEM */
 		$el.active_menu_item = function( ev ){
 			ev.preventDefault();											/* PREVENT DEFAULT EVENT */
 			var $menu_target = $( ev.target );				/* GET MENU ITEM */
+      var universal_filter 						= $menu_target.parent().siblings('.universal-filter'); /* GET THE CORRECT UNIVERSAL FILTER BASED ON THE SELECTED FILTER TYPE */
+			var selected_universal_filter 	= universal_filter.find('[data-filter~=universal].active').length; /* CHECK WHETHER UNIVERSAL FILTER IS ACTIVE OR NOT */
 
-      var universal_filter 						= $menu_target.parent().siblings('.universal-filter');
-			var selected_universal_filter 	= universal_filter.find('[data-filter~=universal].active').length;
-
+			/* IF THE UNIVERSAL FILTER IS ACTIVE */
       if(selected_universal_filter){
 				$menu_target.removeClass('active inactive');
 				$menu_target.parent().siblings('li').find('.btn.btn-sm').removeClass('active inactive');
         $menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
       }
 
+			/* IF NONE OF THE UNIVERSAL SELECTORS ARE ACTIVE */
       else{
         $menu_target.toggleClass('active'); 			/* TOGGLE MENU ITEM */
         $el.isEmpty_filters( $menu_target.data('filter') );
@@ -28,18 +28,16 @@ $.fn.double_filters = function(){
 
       $el.filter_items();			/* FILTER ITEMS */
 
-
-
 		};
 		/* ACTIVE MENU ITEM */
 
     /* IF NO FILTERS ARE ACTIVE */
     $el.isEmpty_filters = function(type){
 
-      /* FIND THE LENGTH OF ACTIVE FILTERS */
+      /* FIND THE LENGTH OF ACTIVE FILTERS BASED ON THE FILTER TYPE */
       var active_filters = $el.find('[data-filter~='+type+'].active').length;
 
-      /* SELECT ALL FILTERS IN THAT ROW AND REMOVE BG COLOR */
+      /* SELECT ALL FILTERS IN THAT ROW AND ADD INACTIVE CLASS AND SELECT THE UNIVERSAL FILTER */
       if(!active_filters){
   			 var universal_filter = $('.'+type+'-filter-list').find('[data-filter~=universal]');
   			 universal_filter.addClass('active');
@@ -47,45 +45,23 @@ $.fn.double_filters = function(){
       }
 
 		};
+		/* IF NO FILTERS ARE ACTIVE */
 
 		/* UNIVERSAL SELECTOR */
 		$el.universal_menu_item = function( ev ){
 			ev.preventDefault();
 			var $menu_target = $( ev.target );
-			$menu_target.addClass('active');
+			$menu_target.addClass('active'); /* ADD ACTIVE CLASS TO THE UNIVERSAL SELECTOR IN THAT ROW */
 
-			/* ACTIVATE ALL FILTERS IN THAT ROW AND REMOVE BG COLOR */
+			/* SELECT ALL FILTERS IN THAT ROW AND ADD INACTIVE CLASS */
 			$menu_target.parent().siblings('li').find('.btn.btn-sm').addClass('active inactive');
 
-			$el.filter_items();
+			$el.filter_items();		/* FILTER ITEMS */
 
 		};
 		/* UNIVERSAL SELECTOR */
 
-		/* FILTER SELECTOR TEXT */
-		$el.filter_selector = function( filter_type ){
-
-			$active_filter = $el.find('[data-filter~=' + filter_type + '].active');
-
-			var selector 	= [];
-
-			$active_filter.each(function( index, selectedFilter ){
-
-				var tax = $(selectedFilter).data('tax'),
-					id 		= $(selectedFilter).data('id');
-
-				if( tax != undefined && id != undefined ){
-					// selector.push("[data-item][data-" + tax + "~=" + id + "]");
-          selector.push("[data-" + tax + "~=" + id + "]");
-				}
-
-			});
-
-			return selector;
-		}
-		/* FILTER SELECTOR TEXT */
-
-		// SELECTED CATEGORIES ID
+		/* GET ACTIVE FILTERS ID BASED ON THE SELECTED FILTER TYPE */
 		$el.filter_selector_id = function( filter_type ){
 
 			$active_filter = $el.find('[data-filter~=' + filter_type + '].active');
@@ -97,100 +73,66 @@ $.fn.double_filters = function(){
 				var tax = $(selectedFilter).data('tax'),
 					id 		= $(selectedFilter).data('id');
 
-				if( tax != undefined && id != undefined ){
-					selector.push(id);
-				}
+				if( tax != undefined && id != undefined ){ selector.push(id); }
 
 			});
 
 			return selector;
 		}
-		// SELECTED CATEGORIES ID
+		/* GET ACTIVE FILTERS ID BASED ON THE SELECTED FILTER TYPE */
+
 
 		/* FILTER ITEMS */
 		$el.filter_items = function(){
 
-			var $primary_filter 		= [],
-					$secondary_filter 	= [],
-					$multi_filters 			= '';
-			var active_primary_filters = $el.find('[data-filter~=primary].active').length,
-					active_secondary_filters = $el.find('[data-filter~=secondary].active').length,
-					filters_length = active_primary_filters + active_secondary_filters ;
+			var active_primary_filters = $el.find('[data-filter~=primary].active').length, /* ACTIVE PRIMARY FILTERS LENGTH */
+					active_secondary_filters = $el.find('[data-filter~=secondary].active').length, /* ACTIVE SECONDARY FILTERS LENGTH */
+					filters_length = active_primary_filters + active_secondary_filters; /* TOTAL LENGTH OF ALL SELECTED FILTERS */
 
 			// console.log(active_primary_filters,active_secondary_filters);
 
-			/* BUILD PRIMARY FILTER */
-			if( active_primary_filters ){ $primary_filter = $el.filter_selector('primary'); }
+			$target.html( html );						/* RESET HTML ELEMENTS */
 
-			/* BUILD SECONDARY FILTER */
-			if( active_secondary_filters ){ $secondary_filter = $el.filter_selector('secondary'); }
-
-			$target.html( html );						/* reset html elements */
-
+			/* IF NO FILTERS ARE SELECTED, SELECT THE UNIVERSAL FILTERS */
 			if( filters_length == 0 ){ $el.find('[data-filter~=universal]').addClass('active'); }
 
+			/* WHEN BOTH PRIMARY AND SECONDARY SELECTORS ARE SELECTED */
 			if( active_primary_filters || active_secondary_filters ){
 
-				// /* MERGE PRIMARY AND SECONDARY FILTERS FOR FASTER FILTERING */
-				// $multi_filters = $primary_filter.concat($secondary_filter).toString();
+				var resource_type_filters = $el.filter_selector_id('primary'); /* GET ALL THE ACTIVE PRIMARY FILTERS ID */
+				var roles_filters = $el.filter_selector_id('secondary'); /* GET ALL THE ACTIVE SECONDARY FILTERS ID */
 
+				var finalArr = []; /* STORES THE POST ID OF ALL THE POSTS BASED ON THE SELECTED FILTERS */
 
-				$multi_filters = $primary_filter.concat($secondary_filter);
+				/* ITERATE THROUGH ALL THE POSTS */
+				$target.find("[data-item]").filter( function( i,item ){
 
+					var $item = $(this);
 
-				// console.log($multi_filters, $multi_filters.join('') );
+					for (var i = 0; i < resource_type_filters.length; i++) {
 
-				/* REMOVE THE IRRELEVANT POSTS */
-				// $target.find("[data-item]:not("+$multi_filters+")").remove();
+						 var catFilter = resource_type_filters[i];
 
-        /* WHEN BOTH PRIMARY AND SELECTORS ARE SELECTED */
-        // if( $el.find('[data-filter~=universal].active').length === 0 ){
+						 for (var j = 0; j < roles_filters.length; j++) {
 
-					var resource_type_filters = $el.filter_selector_id('primary');
-					var roles_filters = $el.filter_selector_id('secondary');
+							 var roleFilter = roles_filters[j];
 
-					// console.log(resource_type_filters);
-
-					var finalArr = [];
-
-
-					$target.find("[data-item]").filter( function( i,item ){
-
-						var $item = $(this);
-
-						for (var i = 0; i < resource_type_filters.length; i++) {
-
-							 var catFilter = resource_type_filters[i];
-
-							 for (var j = 0; j < roles_filters.length; j++) {
-
-								 var roleFilter = roles_filters[j];
-
-								 if( $item.is('[data-resource_types*=' + catFilter + ']' ) && $item.is('[data-roles*=' + roleFilter + ']' ) ) {
-									 	finalArr.push('[id='+$item.attr('id')+']');
-								 }
-
+							 /* CHECKS WHETHER THE CURRENT POST BELONGS TO BOTH THE SELECTED FILTERS CATEGORY */
+							 if( $item.is('[data-resource_types~=' + catFilter + ']' ) && $item.is('[data-roles~=' + roleFilter + ']' ) ) {
+								 	finalArr.push('[id='+$item.attr('id')+']');
 							 }
 
-						}
+						 }
 
-					});
+					}
 
-					/* REMOVE THE IRRELEVANT POSTS */
-					$target.find("[data-item]:not("+finalArr.toString()+")").remove();
+				});
 
+				// console.log(finalArr);
 
-					// $target.find("[data-item]:not("+$multi_filters+")").remove();
+				$target.find("[data-item]:not("+finalArr.toString()+")").remove(); /* REMOVE THE IRRELEVANT POSTS */
 
-					// $target.find("[data-item]:not("+$multi_filters+")").remove();
-
-        // }
-
-
-				// SHOW ERROR MESSAGE
-				if($target.find('[data-item]').length === 0){
-					$('#archive-results').find('.filter-error').show();
-				}
+				if($target.find('[data-item]').length === 0){ $('#archive-results').find('.filter-error').show(); } /* SHOW ERROR MESSAGE */
 
 			}
 
@@ -199,22 +141,21 @@ $.fn.double_filters = function(){
 
 		/* HANDLE CLICK EVENTS */
 		$el.find('[data-filter~=primary]').click( function( ev ){
-			$el.active_menu_item( ev );											/* ACTIVE MENU ITEM - PRIMARY */
+			$el.active_menu_item( ev );	/* ACTIVE MENU ITEM - PRIMARY */
 		});
 		$el.find('[data-filter~=secondary]').click( function( ev ){
-			$el.active_menu_item( ev );											/* ACTIVE MENU ITEM - SECONDARY */
+			$el.active_menu_item( ev );	/* ACTIVE MENU ITEM - SECONDARY */
 		});
 
 		/* UNIVERSAL FILTER */
 		$el.find('[data-filter~=universal]').click( function( ev ){
-			$el.universal_menu_item( ev );											/* ACTIVE MENU ITEM - UNIVERSAL */
+			$el.universal_menu_item( ev ); /* ACTIVE MENU ITEM - UNIVERSAL */
 		});
 
 		/* HANDLE CLICK EVENTS */
 
 		// BY DEFAULT SELECT THE UNIVERSAL FILTERS
 		$el.find('[data-filter~=universal]').click();
-
 
 	});
 }
