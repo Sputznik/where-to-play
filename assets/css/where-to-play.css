@@ -253,7 +253,6 @@ h2{ font-weight: 500;}
   border: 1px solid #e7e8eb;
 }
 
-
 .filters .filter-error{
   display: none;
   position: relative;
@@ -298,6 +297,19 @@ h2{ font-weight: 500;}
   	transform: translate(-50%,-50%);
   }
   /* FILTERS */
+}
+
+
+@media(min-width: 768px){
+  .filters .filter-btn-wrapper li > a.btn.inactive.active:hover,
+  .filters .filter-btn-wrapper li > a.btn:hover{
+    background: #e6f7fd;
+    border: 1px solid #b3e7fb;
+  }
+  .filters .filter-btn-wrapper li > a.btn.active:hover{
+    background: #3b495e;
+    border: 1px solid #3b495e;
+  }
 }
 
 @media(max-width: 991px){
