@@ -5,7 +5,7 @@ add_action('wp_enqueue_scripts',function(){
 
 	wp_enqueue_style('rubik-google-fonts', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap', array('sp-core-style'), '1.0.4' );
 
-  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.15' );
+  wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), '1.0.16' );
 
 },99);
 
@@ -13,6 +13,13 @@ add_action('wp_enqueue_scripts',function(){
 include('lib/custom-header/header-functions.php');
 include('lib/cpt/cpt.php');
 include('lib/filters/filters.php');
+
+/* ADD SOW FROM THE THEME */
+add_action('siteorigin_widgets_widget_folders', function( $folders ){
+  $folders[] = get_stylesheet_directory() . '/so-widgets/';
+  return $folders;
+});
+
 
 //Add google fonts
 add_filter( 'sp_list_google_fonts', function( $fonts ){
