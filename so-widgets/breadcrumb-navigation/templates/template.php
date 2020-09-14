@@ -1,5 +1,5 @@
 <!-- BREADCRUMB NAVIGATION -->
-<div class="container-fluid breadcrumb-wrapper">
+<div class="breadcrumb-wrapper">
   <ul class="breadcrumb">
     <?php foreach( $instance['breadcrumb_items'] as $item ):?>
       <li>

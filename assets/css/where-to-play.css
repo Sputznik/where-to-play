@@ -275,6 +275,12 @@ h2{ font-weight: 500;}
 .breadcrumb-wrapper ul.breadcrumb li a:hover{ text-decoration: underline; }
 /* SOW BREADCRUMB NAVIGATION */
 
+@media(max-width:768px){
+  /* SOW BREADCRUMB NAVIGATION */
+  .breadcrumb-wrapper ul.breadcrumb{ padding-left: 0 !important;}
+  /* SOW BREADCRUMB NAVIGATION */
+}
+
 
 @media (min-width: 769px) {
   .navbar-nav > li > a {
@@ -376,7 +382,6 @@ h2{ font-weight: 500;}
     width: 100%;
   }
   /* FILTERS */
-
 }
 
 /* White header */
