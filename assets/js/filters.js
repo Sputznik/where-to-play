@@ -1,15 +1,15 @@
-$.fn.double_filters = function(){
+jQuery.fn.double_filters = function(){
 	return this.each(function(){
 
-		var $el 					= $( this ),
-			$target 				= $( $el.data('target') ),
+		var $el 					= jQuery( this ),
+			$target 				= jQuery( $el.data('target') ),
 			html 						= $target.html();
 
 
 		/* ACTIVE MENU ITEM */
 		$el.active_menu_item = function( ev ){
 			ev.preventDefault();											/* PREVENT DEFAULT EVENT */
-			var $menu_target = $( ev.target );				/* GET MENU ITEM */
+			var $menu_target = jQuery( ev.target );				/* GET MENU ITEM */
       var universal_filter 						= $menu_target.parent().siblings('.universal-filter'); /* GET THE CORRECT UNIVERSAL FILTER BASED ON THE SELECTED FILTER TYPE */
 			var selected_universal_filter 	= universal_filter.find('[data-filter~=universal].active').length; /* CHECK WHETHER UNIVERSAL FILTER IS ACTIVE OR NOT */
 
@@ -39,7 +39,7 @@ $.fn.double_filters = function(){
 
       /* SELECT ALL FILTERS IN THAT ROW AND ADD INACTIVE CLASS AND SELECT THE UNIVERSAL FILTER */
       if(!active_filters){
-  			 var universal_filter = $('.'+type+'-filter-list').find('[data-filter~=universal]');
+  			 var universal_filter = jQuery('.'+type+'-filter-list').find('[data-filter~=universal]');
   			 universal_filter.addClass('active');
   			 universal_filter.parent().siblings('li').find('.btn.btn-sm').addClass('active inactive');
       }
@@ -50,7 +50,7 @@ $.fn.double_filters = function(){
 		/* UNIVERSAL SELECTOR */
 		$el.universal_menu_item = function( ev ){
 			ev.preventDefault();
-			var $menu_target = $( ev.target );
+			var $menu_target = jQuery( ev.target );
 			$menu_target.addClass('active'); /* ADD ACTIVE CLASS TO THE UNIVERSAL SELECTOR IN THAT ROW */
 
 			/* SELECT ALL FILTERS IN THAT ROW AND ADD INACTIVE CLASS */
@@ -70,8 +70,8 @@ $.fn.double_filters = function(){
 
 			$active_filter.each(function( index, selectedFilter ){
 
-				var tax = $(selectedFilter).data('tax'),
-					id 		= $(selectedFilter).data('id');
+				var tax = jQuery(selectedFilter).data('tax'),
+					id 		= jQuery(selectedFilter).data('id');
 
 				if( tax != undefined && id != undefined ){ selector.push(id); }
 
@@ -107,7 +107,7 @@ $.fn.double_filters = function(){
 				/* ITERATE THROUGH ALL THE POSTS */
 				$target.find("[data-item]").filter( function( i,item ){
 
-					var $item = $(this);
+					var $item = jQuery(this);
 
 					for (var i = 0; i < resource_type_filters.length; i++) {
 
@@ -132,7 +132,7 @@ $.fn.double_filters = function(){
 
 				$target.find("[data-item]:not("+finalArr.toString()+")").remove(); /* REMOVE THE IRRELEVANT POSTS */
 
-				if($target.find('[data-item]').length === 0){ $('#archive-results').find('.filter-error').show(); } /* SHOW ERROR MESSAGE */
+				if($target.find('[data-item]').length === 0){ jQuery('#archive-results').find('.filter-error').show(); } /* SHOW ERROR MESSAGE */
 
 			}
 
@@ -160,8 +160,8 @@ $.fn.double_filters = function(){
 	});
 }
 
-$("document").ready(function() {
+jQuery(document).ready(function() {
 
-	$('[data-behaviour~=double-filters]').double_filters();
+	jQuery('[data-behaviour~=double-filters]').double_filters();
 
 });
