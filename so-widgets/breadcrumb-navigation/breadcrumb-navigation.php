@@ -48,6 +48,23 @@ class Breadcrumb_Navigation extends SiteOrigin_Widget {
 						),
 					)
 				),
+				'design_section' => array(
+	 				'type' => 'section',
+	 				'label' => __( 'Design' , 'siteorigin-widgets' ),
+	 				'hide' => true,
+	 				'fields' => array(
+						'bg_color' => array(
+							'type' 		=> 'color',
+							'label' 	=> __( 'Breadcrumb Background Color', 'siteorigin-widgets' ),
+							'default' => '#1f2939'
+						),
+						'item_color' => array(
+							'type' 		=> 'color',
+							'label' 	=> __( 'Breadcrumb Items Color', 'siteorigin-widgets' ),
+							'default' => '#ced1d7'
+						),
+	 				)
+				),
 			),
 			//The $base_folder path string.
 			get_template_directory()."/so-widgets/breadcrumb-navigation"

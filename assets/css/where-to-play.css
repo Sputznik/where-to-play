@@ -268,10 +268,10 @@ h2{ font-weight: 500;}
 /* FILTERS */
 
 /* SOW BREADCRUMB NAVIGATION */
-.breadcrumb-wrapper ul.breadcrumb{ padding: 10px 16px; background-color: #1f2939; }
+.breadcrumb-wrapper ul.breadcrumb{ padding: 10px 16px; border-radius: 0; }
 .breadcrumb-wrapper ul.breadcrumb li{ display: inline-block; font-family: "Rubik", sans-serif; font-size: 14px; line-height: 24px; }
-.breadcrumb-wrapper ul.breadcrumb li+li:before{ padding: 2px; color: #ced1d7; content: "/\00a0"; }
-.breadcrumb-wrapper ul.breadcrumb li a{ color: #ced1d7; text-decoration: none; }
+.breadcrumb-wrapper ul.breadcrumb li+li:before{ padding: 2px; content: "/\00a0"; }
+.breadcrumb-wrapper ul.breadcrumb li a{ text-decoration: none; }
 .breadcrumb-wrapper ul.breadcrumb li a:hover{ text-decoration: underline; }
 /* SOW BREADCRUMB NAVIGATION */
 
