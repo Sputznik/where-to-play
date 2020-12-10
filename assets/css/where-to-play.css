@@ -510,3 +510,31 @@ ul.blue-list li::before {
 }
 
 /* list-web-btns */
+
+/* SOW CUSTOM ACCORDION */
+.accordion-wrapper .panel-group .panel{ border-radius: 0; }
+.accordion-wrapper .panel.panel-default{ margin: 20px 0; border: none; }
+.accordion-wrapper .panel-default > .panel-heading {
+  background-color: #FFFFFF;
+  border: 1px solid #E7E8EB;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 0;
+  height: 130px;
+}
+.accordion-wrapper .panel-default > .panel-heading > a{ text-decoration: none; outline: none; }
+.accordion-wrapper .panel-body { padding: 0; }
+.accordion-wrapper .wtf-accordion-item{ display: flex; flex-direction: row; align-items: flex-start; width: 100%; }
+.accordion-wrapper .wtf-accordion-img img{ display: block; }
+.accordion-wrapper .wtf-accordion-content{ margin: 0 24px; }
+.accordion-wrapper .wtf-accordion-item h2{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #3B495E;
+  margin: 26.5px 0 8px 0;
+}
+.accordion-wrapper .wtf-accordion-item p{ font-family: 'Rubik'; color: #3B495E; margin: 0; }
+/* SOW CUSTOM ACCORDION */
