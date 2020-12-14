@@ -537,6 +537,12 @@ ul.blue-list li::before {
   margin: 26.5px 0 8px 0;
 }
 .accordion-wrapper .wtf-accordion-item p{ font-family: 'Rubik'; color: #3B495E; margin: 0; }
+@media(max-width: 992px){
+  .accordion-wrapper .wtf-accordion-img img{ width: 100%; }
+  .accordion-wrapper .panel-default > .panel-heading{ height: auto; }
+  .accordion-wrapper .wtf-accordion-item{ flex-direction: column; }
+  .accordion-wrapper .wtf-accordion-content{ margin: 0 15px 15px; }
+}
 /* SOW CUSTOM ACCORDION */
 
 /* SOW WTP USER POPUP */
