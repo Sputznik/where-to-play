@@ -7,7 +7,9 @@ add_action('wp_enqueue_scripts',function(){
 
   wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), time() ); //'1.0.18'
 
-	wp_enqueue_script('wtp-accordion-js', get_stylesheet_directory_uri().'/assets/js/wtp-accordion.js', array('jquery'), time() ); // SOW ACCORDION SCRIPT 
+	wp_enqueue_script('wtp-accordion-js', get_stylesheet_directory_uri().'/assets/js/wtp-accordion.js', array('jquery'), time() ); // SOW ACCORDION SCRIPT
+
+	wp_enqueue_script('wtp-user-popup-js', get_stylesheet_directory_uri().'/assets/js/wtp-user-popup.js', array('jquery'), time() ); // SOW ACCORDION SCRIPT
 
 },99);
 
