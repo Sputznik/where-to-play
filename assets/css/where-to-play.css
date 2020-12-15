@@ -683,3 +683,25 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 .wtp-blog-post .post-body > .post-content{ line-height: 24px; color: #3B495E; }
 @media( max-width: 768px ){ .wtp-blog-post .post-body > .post-img{ height: auto; } }
 /* SINGLE POST */
+
+/* SOCIAL SHARE */
+.article-share { display: block; position: absolute; bottom: 65px; margin: 20px 0; }
+.article-share .social-share { padding: 0; margin: 0; }
+.article-share .social-share > li { padding: 0; padding-left: 15px; margin-bottom: 8px; }
+.article-share .social-share a { display: block; width: 40px; }
+/* SOCIAL SHARE */
+
+/* SOCIAL SHARE STICKY */
+.article-share.sticky-buttons{ display: none !important; }
+.article-share.sticky-buttons{ position: fixed; display: block; z-index: 10; left: 0; bottom: 0; margin: 0; padding: 0; }
+.article-share.sticky-buttons li { display: table-cell; width: 1%; padding: 0; }
+.article-share.sticky-buttons li i.fa { padding: 0 4px 4px; width: 100%; height: initial; line-height: 2.2em; font-size: 1.3em; color: #FFFFFF; }
+.article-share.sticky-buttons li a{ display: initial; text-align: center; width: 100%; }
+.article-share.sticky-buttons .fa-twitter{ background-color: #2896ED; }
+.article-share.sticky-buttons .fa-facebook{ background-color: #364F8C; }
+.article-share.sticky-buttons .fa-linkedin{ background-color: #156CAC; }
+/* SOCIAL SHARE STICKY */
+
+@media( max-width: 900px ){ .article-share{ display: none; } .article-share.sticky-buttons{ display: block !important; } }
+@media (max-width: 768px){ .article-share.sticky-buttons > li { margin-bottom: 10px; } }
+/* SOCIAL SHARE */

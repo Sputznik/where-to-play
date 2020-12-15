@@ -17,6 +17,7 @@ add_action('wp_enqueue_scripts',function(){
 include('lib/custom-header/header-functions.php');
 include('lib/cpt/cpt.php');
 include('lib/filters/filters.php');
+include('partials/share-socialmedia.php');
 
 /* ADD SOW FROM THE THEME */
 add_action('siteorigin_widgets_widget_folders', function( $folders ){
