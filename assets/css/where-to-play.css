@@ -555,7 +555,7 @@ ul.blue-list li::before {
 .articles-users .wtp-user-body{ height: 300px; background-color: #ffffff; padding: 0 43px 0 0; transition: box-shadow 0.3s ease-in-out; }
 .articles-users .wtp-user-body:hover{ cursor: pointer; box-shadow: 0px 0px 34px rgba(59, 89, 152, 0.2); }
 .articles-users .wtp-user-body .user-thumbnail-bg,
-.modal .wtp-user-body .user-thumbnail-bg{ width: 100%; max-width: 180px; min-height: 180px; background-repeat:no-repeat; }
+#wtp-user-modal .wtp-user-body .user-thumbnail-bg{ width: 100%; max-width: 180px; min-height: 180px; background-repeat:no-repeat; }
 .wtp-user-body .user-meta { height: 120px; overflow: hidden; margin-left: 16px; }
 .wtp-user-body .user-meta .name{ font-weight: 500; font-size: 16px; line-height: 24px; color: #000000; }
 .wtp-user-body .user-meta .role, .wtp-user-body .user-meta .location{ display: block; font-size: 14px; line-height: 18px; color: #3B495E; }
@@ -593,7 +593,10 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 
 @media(max-width: 768px){
   .articles-users{ grid-template-columns: repeat( 2, 1fr );  }
+  .articles-users .wtp-user-body{ padding: 0; }
   #wtp-user-modal .modal-dialog { width: 95%; margin: 0 auto; top: 6%; }
+  .articles-users .wtp-user-body .user-thumbnail-bg{ margin: 0 auto; }
+  .articles-users .wtp-user-body .user-meta{ text-align: center; }
   #wtp-user-modal .wtp-user-body .user-meta { margin-left: 0px; margin-top: 3%; }
   #wtp-user-modal .wtp-user-body { margin: 0px 15px 20px; }
   #wtp-user-modal .modal-header { margin: 20px 15px 10px; }
