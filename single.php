@@ -8,6 +8,7 @@
         <div class="breadcrumb">
           The blog / <?php the_title();?>
         </div>
+        <?php echo do_shortcode('[wtp_social_share]');?>
       </div>
       <div class="post-body">
         <h6 class="title"><?php the_title();?></h6>
@@ -19,5 +20,6 @@
       </div>
     <?php endwhile;endif;?>
   </div>
+  <?php echo do_shortcode('[wtp_social_share style="sticky"]');?>
 
 <?php get_footer();?>
