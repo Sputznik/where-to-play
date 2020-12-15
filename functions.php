@@ -73,3 +73,29 @@ function excerpt( $limit ) {
 function getUniqueID( $data ){
 	return substr( md5( json_encode( $data ) ), 0, 8 );
 }
+
+/* CREATE ATTS ARRAY FROM DEFAULT AND USER PARAMETERS IN THE SHORTCODE */
+add_shortcode( 'blog_terms', function( $atts ){
+
+	$atts = shortcode_atts( array(
+    'taxonomy' 	=> 'category',
+  ), $atts, 'blog_terms' );
+
+  global $post;
+
+  $term_list = wp_get_post_terms( $post->ID, $atts['taxonomy'] );
+
+  $final_terms = array();
+
+  // ITERATING THE LIST OF TERMS
+  foreach( $term_list as $term ){
+		$final_terms[$term->term_id] = $term->name;
+	}
+
+  $html  = "<ul class='list-unstyled post-terms'>";
+	$html .= "<li class='term'>".implode("</li><li class='term'>", $final_terms )."</li>";
+	$html .= "</ul>";
+
+  return $html;
+
+});

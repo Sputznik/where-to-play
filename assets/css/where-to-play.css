@@ -601,3 +601,64 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 @media(max-width: 500px){ .articles-users{ grid-template-columns: repeat( 1, 1fr ); } }
 
 /* SOW WTP USER POPUP */
+
+/* ARTICLES BLOG  */
+.articles-blog{ margin-bottom: 40px; }
+.articles-blog .orbit-article{ margin-bottom: 20px; }
+.articles-blog .post-content > h2,
+.articles-blog .post-content > .post-meta,
+.articles-blog .post-content > .desc,
+.articles-blog .post-content > .post-terms > .term{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: normal;
+}
+.articles-blog .post-body{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #E7E8EB;
+  box-sizing: border-box;
+  margin: 0px 20px;
+}
+.articles-blog .post-img{
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  height: 160px;
+  align-self: flex-start;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #eee;
+}
+.articles-blog .post-body .post-img a{ position: absolute; width: 100%; height: 100%; }
+.articles-blog .post-content{ margin-left: 32px; }
+.articles-blog .post-content > h2{ font-size: 22px; line-height: 28px; color: #3B495E; margin: 0; }
+.articles-blog .post-content > .post-meta{ font-size: 12px; line-height: 24px; color: #748093; margin: 0px 4px; text-transform: capitalize; }
+.articles-blog .post-content > .desc{ font-size: 14px; line-height: 20px; color: #3B495E; margin: 0px 4px; }
+.articles-blog .post-content > .post-terms{ display: inline-block; margin: 6px 0px; padding: 0; }
+.articles-blog .post-content > .post-terms > .term{
+  display: inline-block;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: #3B495E;
+  padding: 4px 6px;
+  background: #FFFFFF;
+  border: 1px solid #E7E8EB;
+  box-sizing: border-box;
+  border-radius: 2px; margin: 8px;
+}
+@media(min-width:769px){
+  .articles-blog .post-body{ transition: box-shadow 0.2s ease-in-out; }
+  .articles-blog .post-body:hover{ box-shadow: 0px 0px 34px rgba(59, 89, 152, 0.2); }
+}
+@media( max-width: 700px ){
+  .articles-blog .post-body{ flex-direction: column; }
+  .articles-blog .post-content{ margin-left: 0; margin-top: 15px; }
+  .articles-blog .post-img{ max-width: 100%; }
+}
+/* ARTICLES BLOG  */
