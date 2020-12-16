@@ -20,6 +20,9 @@
       </div>
     <?php endwhile;endif;?>
   </div>
+  <div class="container-fluid">
+    <?php if( is_active_sidebar( 'single-post-footer' ) ){ dynamic_sidebar( 'single-post-footer' ); }?>
+  </div>
   <?php echo do_shortcode('[wtp_social_share style="sticky"]');?>
 
 <?php get_footer();?>
