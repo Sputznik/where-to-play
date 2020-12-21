@@ -655,7 +655,7 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
   line-height: 24px;
   text-align: center;
   padding: 4px 6px;
-  margin: 0 8px 0 0;
+  margin: 0 8px 8px 0;
   color: #3B495E;
   background: #FFFFFF;
   border: 1px solid #E7E8EB;
@@ -674,6 +674,38 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 }
 /* ARTICLES BLOG  */
 
+/* ARCHIVE TEMPLATE */
+body.archive.category .search-pagination { padding-bottom: 5px; margin-bottom: 30px; }
+body.archive.category
+.category-list ul{
+	list-style:none;
+  padding:0;
+  margin:0;
+}
+.category-list h3{
+  font-weight: 500;
+	font-size: 18px;
+	line-height: 36px;
+  padding: 12px 27px;
+  margin:0;
+	border-bottom: 1px solid #E7E8EB;
+}
+.category-list ul li{
+	padding: 12px 27px;
+	border-bottom: 1px solid #E7E8EB;
+}
+.category-list ul li.cat-item:hover,
+.category-list ul li.cat-item.current-cat{
+	background-color: #FFFFFF;
+  border-right: 2px solid #e7e8eb;
+  color:#00AEEF;
+  text-decoration:none;
+  cursor: pointer;
+}
+.category-list ul li.cat-item a{ display: block; text-decoration:none; }
+body.archive.category > .post-archive{ padding: 35px 120px; }
+/* ARCHIVE TEMPLATE */
+
 /* SINGLE POST */
 .wtp-blog-post{ padding: 0; position: relative; }
 .wtp-blog-post .post-header{ height: 400px; position: absolute; width: 100%; top: 0; left: 0; right: 0; background: #F3F4F5; }
@@ -686,10 +718,12 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 .wtp-blog-post .post-body > .post-content{ line-height: 24px; color: #3B495E; }
 .wtp-blog-post .post-body > .post-content iframe{ width: 100%; }
 .wtp-blog-post .post-body > .post-content img{ height: auto; width: 100%; }
+body.archive.category .archive-title{text-transform: capitalize;margin-bottom: 30px;color: #1f2939; }
 @media( max-width: 768px ){
   .wtp-blog-post .post-body > .post-img{ height: auto; }
   /* ARCHIVE TEMPLATE */
   body.archive.category .archive-title{ font-size: 30px; }
+  body.archive.category > .post-archive{ padding: 35px 20px;}
 }
 /* SINGLE POST */
 
@@ -714,5 +748,3 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 @media( max-width: 900px ){ .article-share{ display: none; } .article-share.sticky-buttons{ display: block !important; } }
 @media (max-width: 768px){ .article-share.sticky-buttons > li { margin-bottom: 10px; } }
 /* SOCIAL SHARE */
-
-body.archive.category .search-pagination { padding-bottom: 5px; margin-bottom: 30px; }
