@@ -100,3 +100,18 @@ add_shortcode( 'blog_terms', function( $atts ){
   return $html;
 
 });
+
+//Sidebar Widget
+add_action( 'widgets_init', function(){
+  // Sidebar widget for archive
+  register_sidebar( array(
+    'name' 			    => 'Sidebar for Archive',
+    'id' 			      => 'wtp-archive-sidebar',
+    'description' 	=> 'Sidebar appears in the archive page',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' 	=> '</aside>',
+    'before_title' 	=> '<h3 class="widget-title">',
+    'after_title' 	=> '</h3>',
+  ) );
+
+});
