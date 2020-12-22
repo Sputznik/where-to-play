@@ -525,6 +525,7 @@ ul.blue-list li::before {
 .accordion-wrapper .panel-default > .panel-heading > a{ text-decoration: none; outline: none; }
 .accordion-wrapper .panel-body { padding: 0; }
 .accordion-wrapper .wtf-accordion-item{ display: flex; flex-direction: row; align-items: flex-start; width: 100%; }
+.accordion-wrapper .wtf-accordion-img{ width: 100%; max-width: 220px; }
 .accordion-wrapper .wtf-accordion-img img{ display: block; }
 .accordion-wrapper .wtf-accordion-content{ margin: 0 24px; }
 .accordion-wrapper .wtf-accordion-item h2{
@@ -537,8 +538,14 @@ ul.blue-list li::before {
   margin: 26.5px 0 8px 0;
 }
 .accordion-wrapper .wtf-accordion-item p{ font-family: 'Rubik'; color: #3B495E; margin: 0; }
-@media(max-width: 992px){
-  .accordion-wrapper .wtf-accordion-img img{ width: 100%; }
+@media only screen and (max-width: 768px) and (min-width: 768px){
+  .accordion-wrapper .wtf-accordion-item h2{ margin: 10px 0; }
+  .accordion-wrapper .panel-default > .panel-heading{ height: auto; }
+  .accordion-wrapper .wtf-accordion-item{ flex-direction: row !important; }
+}
+@media(max-width: 767px){
+  .accordion-wrapper .wtf-accordion-img{ max-width: 100%;  }
+  .accordion-wrapper .wtf-accordion-img img{ width: 100%;  }
   .accordion-wrapper .panel-default > .panel-heading{ height: auto; }
   .accordion-wrapper .wtf-accordion-item{ flex-direction: column; }
   .accordion-wrapper .wtf-accordion-content{ margin: 0 15px 15px; }
@@ -704,6 +711,10 @@ body.archive.category
 }
 .category-list ul li.cat-item a{ display: block; text-decoration:none; }
 body.archive.category > .post-archive{ padding: 35px 120px; }
+@media only screen and (max-width: 768px) and (min-width: 768px){
+  body.archive.category > .post-archive > .row > .col-sm-8,
+  body.archive.category > .post-archive > .row > .col-sm-4{ width: 100%; }
+}
 /* ARCHIVE TEMPLATE */
 
 /* SINGLE POST */
