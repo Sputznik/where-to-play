@@ -142,9 +142,11 @@ jQuery.fn.double_filters = function(){
 		/* HANDLE CLICK EVENTS */
 		$el.find('[data-filter~=primary]').click( function( ev ){
 			$el.active_menu_item( ev );	/* ACTIVE MENU ITEM - PRIMARY */
+			$el.updateUrlParameter(); /* Bottom filter */
 		});
 		$el.find('[data-filter~=secondary]').click( function( ev ){
 			$el.active_menu_item( ev );	/* ACTIVE MENU ITEM - SECONDARY */
+			$el.updateUrlParameter(); /* Top filter */
 		});
 
 		/* UNIVERSAL FILTER */
@@ -157,11 +159,73 @@ jQuery.fn.double_filters = function(){
 		// BY DEFAULT SELECT THE UNIVERSAL FILTERS
 		$el.find('[data-filter~=universal]').click();
 
+		/* MANIPULATES THE URL BASED ON THE SELECTED FILTER */
+		$el.updateUrlParameter = function(){
+
+			var updatedUrl = '?';
+			var resource_type_filters = $el.filter_selector_id('primary').toString(); /* GET ALL THE ACTIVE PRIMARY FILTERS ID */
+			var roles_filters = $el.filter_selector_id('secondary').toString(); /* GET ALL THE ACTIVE SECONDARY FILTERS ID */
+
+			updatedUrl += roles_filters.length > 0 ? `role=${roles_filters}` : '';
+			updatedUrl += resource_type_filters.length > 0 ? ( (resource_type_filters.length > 0 && roles_filters.length > 0 ) ? `&type=${resource_type_filters}` : `type=${resource_type_filters}` )  : '';
+
+			window.history.pushState("", "", updatedUrl);
+
+		};
+		/* MANIPULATES THE URL BASED ON THE SELECTED FILTER */
+
 	});
 }
 
 jQuery(document).ready(function() {
 
 	jQuery('[data-behaviour~=double-filters]').double_filters();
+
+	/* ITERATES THROUGH ALL THE PARAMETERS */
+	function getParameterByName() {
+
+    var url = window.location.href;
+
+    /* INVOKE AUTOCLICK ONLY IF PARAMETERS EXIST */
+    if( url.indexOf('role') !== -1 || url.indexOf('type') !== -1 ){
+      var names = ['role','type'];
+  		var params = [];
+
+  		jQuery.each( names, function( i,name ){
+   		 var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+   				 results = regex.exec(url);
+   		 if (!results) return null;
+   		 if (!results[2]) return '';
+   		 params += decodeURIComponent(results[2].replace(/\+/g, ' ')) + ',';
+
+      });
+
+      params = params.slice(0, -1).split(',');
+			autoClickFilter( params );
+
+    }
+
+ 	}
+
+
+ /* AUTOCLICKS FILTER BUTTONS ON PAGE LOAD */
+ function autoClickFilter( params ){
+
+   var  filters = jQuery('[data-behaviour~=double-filters]').find('.btn'); // SELECTS ALL THE FILTER BUTTONS
+
+	 jQuery.each( params, function( i, v ){
+
+			jQuery.each( filters , function( j, tax ){
+
+				if( jQuery(tax).data('id') == v ){ jQuery(tax).click(); }
+
+			});
+
+	 });
+
+ }
+
+ /* EXECUTES ONLY ONCE */
+ getParameterByName();
 
 });
