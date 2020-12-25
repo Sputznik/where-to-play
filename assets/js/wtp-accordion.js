@@ -15,4 +15,10 @@ jQuery(document).ready(function(){
 
   });
 
+  // CHECK IF THERE IS A HASH IN THE URL
+   if ( window.location.hash != '' ){
+     jQuery('.accordion-wrapper .collapse').removeClass('in'); // HIDE ACCORDION PANELS IF ALREADY VISIBLE (they have a class of 'in')
+     jQuery('.accordion-wrapper '+ window.location.hash + '.collapse').collapse('show'); // SHOW THE PANEL BASED ON THE HASH NOW:
+   }
+
 });
