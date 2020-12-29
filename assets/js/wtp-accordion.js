@@ -21,4 +21,18 @@ jQuery(document).ready(function(){
      jQuery('.accordion-wrapper '+ window.location.hash + '.collapse').collapse('show'); // SHOW THE PANEL BASED ON THE HASH NOW:
    }
 
+   // WTP READ MORE OR LESS
+   jQuery('.read-more-less .read').click(function(e) {
+    e.preventDefault();
+    jQuery('.read-more-less .section').slideToggle();
+    if( jQuery(this).hasClass('more-btn') ){
+      jQuery(this).hide();
+      jQuery('.read-more-less .less-btn').show();
+    }
+    else{
+      jQuery('.read-more-less .less-btn').hide();
+      jQuery('.read-more-less .more-btn').show();
+    }
+  });
+
 });
