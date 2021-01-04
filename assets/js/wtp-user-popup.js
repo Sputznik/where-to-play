@@ -34,25 +34,28 @@ jQuery.fn.wtp_user_popup = function() {
                   <div class="separator"></div>
                   <div class="bio">${bio}</div>
                   <span class="website">
-										<a href="${social_links.web}" target="_blank">${social_links.web}</a>
+										<a href="${social_links.web}" target="_blank">${social_links.web.replace(/^https?:\/\//, '')}</a>
 									</span>
                   <!-- Social Links -->
                   <ul class="social-media list-unstyled">
-                    <li>
-                      <a href="mailto:${social_links.mail}" target="_blank">
-												<span class="mail"></span>
-											</a>
-                    </li>
-                    <li>
-                      <a href="${social_links.li}" target="_blank">
-												<span class="linkedin"></span>
-											</a>
-                    </li>
-                    <li>
-                      <a href="${social_links.tw}" target="_blank">
-												<span class="twitter"></span>
-											</a>
-                    </li>
+										${social_links.mail ?
+											`<li>
+	                      <a href="mailto:${social_links.mail}" target="_blank">
+													<span class="mail"></span>
+												</a>
+	                    </li>` : ''}
+										${social_links.li ?
+											`<li>
+	                      <a href="${social_links.li}" target="_blank">
+													<span class="linkedin"></span>
+												</a>
+	                    </li>` : ''}
+										${social_links.tw ?
+											`<li>
+	                      <a href="${social_links.tw}" target="_blank">
+													<span class="twitter"></span>
+												</a>
+	                    </li>` : ''}
                   </ul>
                 </div>
               </div>
