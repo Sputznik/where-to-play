@@ -13,10 +13,10 @@
       <div class="post-body">
         <h6 class="title"><?php the_title();?></h6>
         <div class='post-meta'><?php the_author(); echo ', '.get_the_date('M j, Y');?></div>
+        <?php echo do_shortcode('[blog_terms]');?>
         <img class="post-img" src="<?php _e( $image_url );?>" alt="Featured Image">
         <div class="sub-title"></div>
         <div class="post-content"><?php the_content();?> </div>
-        <?php echo do_shortcode('[blog_terms]');?>
       </div>
     <?php endwhile;endif;?>
   </div>
