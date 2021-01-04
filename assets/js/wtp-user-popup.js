@@ -33,9 +33,10 @@ jQuery.fn.wtp_user_popup = function() {
                   <span class="location">${location}</span>
                   <div class="separator"></div>
                   <div class="bio">${bio}</div>
-                  <span class="website">
-										<a href="${social_links.web}" target="_blank">${social_links.web.replace(/^https?:\/\//, '')}</a>
-									</span>
+									${social_links.web ?
+										`<span class="website">
+											<a href="${social_links.web}" target="_blank">${social_links.web.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0]}</a>
+										</span>` : ''}
                   <!-- Social Links -->
                   <ul class="social-media list-unstyled">
 										${social_links.mail ?
