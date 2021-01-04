@@ -10,7 +10,7 @@
     <div class='post-meta'>
       <?php the_author(); echo ', '.get_the_date('M j, Y');?>
     </div>
-    <div class="desc"><?php echo excerpt( 40 ); ?></div>
     <?php echo do_shortcode('[blog_terms]');?>
+    <div class="desc"><?php echo excerpt( 40 ); ?></div>
   </div>
 </div>
