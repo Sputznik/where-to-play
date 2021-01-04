@@ -640,6 +640,8 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 /* ARTICLES BLOG  */
 .articles-blog{ margin-bottom: 40px; }
 .articles-blog .orbit-article{ margin-bottom: 20px; }
+.articles-blog .orbit-article > .blog-post-btn{ text-decoration: none; }
+.articles-blog .orbit-article > .blog-post-btn:focus{ outline: none; }
 .articles-blog .post-content > h2,
 .articles-blog .post-content > .post-meta,
 .articles-blog .post-content > .desc,
