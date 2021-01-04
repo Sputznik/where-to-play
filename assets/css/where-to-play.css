@@ -189,16 +189,40 @@ h2{ font-weight: 500;}
 
 /* PAGINATION */
 .search-pagination .page-numbers.current,
-.search-pagination a.page-numbers:hover {
+.search-pagination a.page-numbers:hover,
+ul.page-numbers li a:hover,
+ul.page-numbers li span.current{
   background: #1f2939;
   border: 1px solid #1f2939;
   color: #ffffff;
   text-decoration: none;
 }
-.search-pagination .page-numbers.prev{color: #1f2939;}
-.search-pagination .page-numbers.next{color: #1f2939;}
-.page-numbers.dots{color: #1f2939;}
+.search-pagination .page-numbers.prev
+.search-pagination .page-numbers.next,
+.page-numbers.dots,
+ul.page-numbers li .next,
+ul.page-numbers li .prev{
+  color: #1f2939;
+}
 /* PAGINATION */
+
+/* ORBIT PAGINATION */
+ul.page-numbers { list-style: none; background: #f7f7f7; border: 1px solid #eaeaea; margin: 0 auto; padding: 20px 10px; text-align: center; }
+ul.page-numbers li { font-size: 16px; display: inline; }
+ul.page-numbers li .page-numbers {
+  display: inline-block;
+  padding: 7px 10px;
+  margin: 0 2px 0 0;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: 600;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+ul.page-numbers li .prev{ float: left; }
+ul.page-numbers li .next{ float: right; }
+/* ORBIT PAGINATION */
 
 
 /* FILTERS */
