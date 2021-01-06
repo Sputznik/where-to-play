@@ -88,7 +88,7 @@
 				/* ITERATING THROUGH THE LIST OF TERMS AND PRINTING THEM AS THE PART OF THE LIST */
 				foreach( $terms as $term ):?>
 				<li class="<?php _e( $list_class );?>">
-					<a href="#" class="btn btn-sm" data-filter='<?php _e( $filter_type );?>' data-tax='<?php _e( $term->taxonomy );?>' data-id='<?php _e( $term->term_id );?>'><?php _e( $term->name );?></a>
+					<a href="#" class="btn btn-sm" data-filter='<?php _e( $filter_type );?>' data-tax='<?php _e( $term->taxonomy );?>' data-id='<?php _e( $term->term_id );?>' data-slug='<?php _e( $term->slug );?>'><?php _e( $term->name );?></a>
 				</li>
 				<?php endforeach;
 

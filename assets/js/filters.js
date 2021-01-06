@@ -61,8 +61,8 @@ jQuery.fn.double_filters = function(){
 		};
 		/* UNIVERSAL SELECTOR */
 
-		/* GET ACTIVE FILTERS ID BASED ON THE SELECTED FILTER TYPE */
-		$el.filter_selector_id = function( filter_type ){
+		/* GET ACTIVE FILTERS ID or SLUG BASED ON THE SELECTED FILTER TYPE */
+		$el.filter_selector = function( filter_type, selector_name ){
 
 			$active_filter = $el.find('[data-filter~=' + filter_type + '].active');
 
@@ -71,9 +71,9 @@ jQuery.fn.double_filters = function(){
 			$active_filter.each(function( index, selectedFilter ){
 
 				var tax = jQuery(selectedFilter).data('tax'),
-					id 		= jQuery(selectedFilter).data('id');
+						selector_val = jQuery(selectedFilter).data(selector_name);
 
-				if( tax != undefined && id != undefined ){ selector.push(id); }
+				if( tax != undefined && selector_val != undefined ){ selector.push(selector_val); }
 
 			});
 
@@ -99,8 +99,8 @@ jQuery.fn.double_filters = function(){
 			/* WHEN BOTH PRIMARY AND SECONDARY SELECTORS ARE SELECTED */
 			if( active_primary_filters || active_secondary_filters ){
 
-				var resource_type_filters = $el.filter_selector_id('primary'); /* GET ALL THE ACTIVE PRIMARY FILTERS ID */
-				var roles_filters = $el.filter_selector_id('secondary'); /* GET ALL THE ACTIVE SECONDARY FILTERS ID */
+				var resource_type_filters = $el.filter_selector('primary','id'); /* GET ALL THE ACTIVE PRIMARY FILTERS ID */
+				var roles_filters = $el.filter_selector('secondary','id'); /* GET ALL THE ACTIVE SECONDARY FILTERS ID */
 
 				var finalArr = []; /* STORES THE POST ID OF ALL THE POSTS BASED ON THE SELECTED FILTERS */
 
@@ -163,8 +163,8 @@ jQuery.fn.double_filters = function(){
 		$el.updateUrlParameter = function(){
 
 			var updatedUrl = '?';
-			var resource_type_filters = $el.filter_selector_id('primary').toString(); /* GET ALL THE ACTIVE PRIMARY FILTERS ID */
-			var roles_filters = $el.filter_selector_id('secondary').toString(); /* GET ALL THE ACTIVE SECONDARY FILTERS ID */
+			var resource_type_filters = $el.filter_selector('primary','slug').toString(); /* GET ALL THE ACTIVE PRIMARY FILTERS SLUG */
+			var roles_filters = $el.filter_selector('secondary','slug').toString(); /* GET ALL THE ACTIVE SECONDARY FILTERS SLUG */
 
 			updatedUrl += roles_filters.length > 0 ? `role=${roles_filters}` : '';
 			updatedUrl += resource_type_filters.length > 0 ? ( (resource_type_filters.length > 0 && roles_filters.length > 0 ) ? `&type=${resource_type_filters}` : `type=${resource_type_filters}` )  : '';
@@ -217,7 +217,7 @@ jQuery(document).ready(function() {
 
 			jQuery.each( filters , function( j, tax ){
 
-				if( jQuery(tax).data('id') == v ){ jQuery(tax).click(); }
+				if( jQuery(tax).data('slug') == v ){ jQuery(tax).click(); }
 
 			});
 
