@@ -611,6 +611,15 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 #wtp-user-modal .social-media li span{display: inline-block; width: 25px; height: 25px; background-repeat: no-repeat; background-position: center; margin-right: 5px; }
 /* USER MODAL */
 
+/* SOW WTP CATEGORIES */
+.wtp-categories{ background-color: #f3f4f5; padding: 10px 0px 0px 0px; }
+.wtp-categories .title{ font-weight: 500; font-size: 18px; line-height: 36px; padding: 12px 27px; margin: 0; border-bottom: 1px solid #E7E8EB; }
+.wtp-categories > ul{ list-style: none; padding: 0; margin: 0; }
+.wtp-categories .cat-item{ border-bottom: 1px solid #E7E8EB; }
+.wtp-categories .cat-item a { display: block; text-decoration: none; padding: 12px 27px; border-radius: 2px; border-right: 2px solid transparent; }
+.wtp-categories .cat-item:hover a, .wtp-categories .cat-item.current-cat a{ background-color: #FFFFFF; color: #00AEEF; text-decoration: none; border-right-color: #e7e8eb; }
+.wtp-categories .cat-item:hover:not(.current-cat) a{ box-shadow: 0px 0px 34px rgba(59, 89, 152, 0.2); }
+
 @media(min-width: 768px){
   #wtp-user-modal .modal-content{ box-shadow: none; transition: box-shadow 0.3s ease-in-out; }
   #wtp-user-modal .modal-content:hover{ box-shadow: 0px 0px 34px rgba(59, 89, 152, 0.2) !important; }
@@ -710,33 +719,6 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 
 /* ARCHIVE TEMPLATE */
 body.archive.category .search-pagination { padding-bottom: 5px; margin-bottom: 30px; }
-body.archive.category
-.category-list ul{
-	list-style:none;
-  padding:0;
-  margin:0;
-}
-.category-list h3{
-  font-weight: 500;
-	font-size: 18px;
-	line-height: 36px;
-  padding: 12px 27px;
-  margin:0;
-	border-bottom: 1px solid #E7E8EB;
-}
-.category-list ul li{
-	padding: 12px 27px;
-	border-bottom: 1px solid #E7E8EB;
-}
-.category-list ul li.cat-item:hover,
-.category-list ul li.cat-item.current-cat{
-	background-color: #FFFFFF;
-  border-right: 2px solid #e7e8eb;
-  color:#00AEEF;
-  text-decoration:none;
-  cursor: pointer;
-}
-.category-list ul li.cat-item a{ display: block; text-decoration:none; }
 body.archive.category > .post-archive{ padding: 35px 120px; }
 @media only screen and (max-width: 768px) and (min-width: 768px){
   body.archive.category > .post-archive > .row > .col-sm-8,

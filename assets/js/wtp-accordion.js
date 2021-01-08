@@ -57,6 +57,13 @@ jQuery(document).ready(function(){
     }
   });
 
+  /* WTP CATEGORIES */
+  jQuery('.wtp-categories li.current-cat > a').on('click',function(e){
+    e.preventDefault();
+    var blog_url = jQuery(this).data('blog');
+    window.location.href = blog_url;
+  });
+
   autoCheckHash(); /* EXECUTED ON PAGE LOAD */
 
 });
