@@ -1,6 +1,19 @@
 <?php get_header();
-  $term = $wp_query->get_queried_object();;
+  $term = $wp_query->get_queried_object();
 ?>
+  <div class="container-fluid breadcrumb-wrapper">
+    <ul class="breadcrumb">
+      <li>
+        <a href="<?php echo home_url( '/resources/' ); ?>">Resources</a>
+      </li>
+      <li>
+        <a href="<?php echo home_url( '/blog/' ); ?>">The Blog</a>
+      </li>
+      <li>
+        <?php echo $term->name; ?></a>
+      </li>
+    </ul>
+  </div>
   <div class="container-fluid post-archive">
     <div class="row">
       <div class="col-sm-8">

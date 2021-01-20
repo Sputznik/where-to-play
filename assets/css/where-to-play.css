@@ -718,6 +718,12 @@ a[data-behaviour~="wtp-user-popup"]{ text-decoration: none; }
 /* ARTICLES BLOG  */
 
 /* ARCHIVE TEMPLATE */
+body.archive .breadcrumb-wrapper ul.breadcrumb{ background-color: #ffffff; }
+body.archive .breadcrumb-wrapper ul.breadcrumb li a,
+body.archive .breadcrumb-wrapper ul.breadcrumb li,
+body.archive .breadcrumb-wrapper ul.breadcrumb li+li:before{
+ color: #748093;
+}
 body.archive.category .search-pagination { padding-bottom: 5px; margin-bottom: 30px; }
 body.archive.category > .post-archive{ padding: 35px 120px; }
 @media only screen and (max-width: 768px) and (min-width: 768px){
