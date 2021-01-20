@@ -6,7 +6,7 @@
     <?php if( have_posts() ): while ( have_posts() ): the_post();?>
       <div class="post-header">
         <div class="breadcrumb">
-          The blog / <?php the_title();?>
+          <a href="<?php echo home_url( '/blog/' ); ?>">The Blog</a> / <?php the_title();?>
         </div>
         <?php echo do_shortcode('[wtp_social_share]');?>
       </div>
