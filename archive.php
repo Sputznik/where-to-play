@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm-8">
         <h1 class="archive-title">
-            Tagged Under: <?php echo $term->name; ?>
+          <?php echo $term->name; ?>
         </h1>
         <?php if( have_posts() ): ?>
           <ul class="list-unstyled articles-blog">
