@@ -14,11 +14,11 @@
     $icons = array(
       'li'  => array(
         'icon'  => $icon_path.'/li-share.png',
-        'url'   =>  "http://www.linkedin.com/shareArticle?mini=true&url=$permalink&title=".rawurlencode( get_the_title() )
+        'url'   => "https://www.linkedin.com/sharing/share-offsite/?url=$permalink"
       ),
       'tw'  => array(
         'icon'  => $icon_path.'/tw-share.png',
-        'url'   => "https://twitter.com/intent/tweet?text=".$post->post_excerpt."&url=$permalink&via=WhereToPlayCo"
+        'url'   => "https://twitter.com/intent/tweet?text=".$post->post_excerpt."&url=$permalink&via="
       ),
       'fb'  => array(
         'icon'  => $icon_path.'/fb-share.png',
