@@ -14,7 +14,7 @@
     $icons = array(
       'li'  => array(
         'icon'  => $icon_path.'/li-share.png',
-        'url'   => "https://www.linkedin.com/sharing/share-offsite/?url=$permalink"
+        'url'   =>  "http://www.linkedin.com/shareArticle?mini=true&url=$permalink&title=".rawurlencode( get_the_title() )
       ),
       'tw'  => array(
         'icon'  => $icon_path.'/tw-share.png',
