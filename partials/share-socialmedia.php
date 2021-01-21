@@ -18,7 +18,7 @@
       ),
       'tw'  => array(
         'icon'  => $icon_path.'/tw-share.png',
-        'url'   => "https://twitter.com/intent/tweet?text=".$post->post_excerpt."&url=$permalink&via="
+        'url'   => "https://twitter.com/intent/tweet?text=".$post->post_excerpt."&url=$permalink&via=WhereToPlayCo"
       ),
       'fb'  => array(
         'icon'  => $icon_path.'/fb-share.png',
