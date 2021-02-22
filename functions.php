@@ -43,7 +43,7 @@ add_shortcode( 'wtp_web_btns', function(){
 	<ul class='list-inline list-web-btns'>
 		<li><a href="https://app.wheretoplay.co/" class="btn-blue-outline" target="_blank">TRY OUR WEB APP</a></li>
 		<li class='or-text'><span>or</span></li>
-		<li><a href="https://staging1.wheretoplay.co/worksheets-2/" class="anchor-blue" target="_blank">DOWNLOAD WORKSHEETS</a></li>
+		<li><a href="http://staging1.wheretoplay.co/worksheets/" class="anchor-blue" target="_blank">DOWNLOAD WORKSHEETS</a></li>
 		<li class='free-text'><span>Its Free!</span></li>
 	</ul>
 	<?php
