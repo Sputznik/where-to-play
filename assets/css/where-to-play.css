@@ -406,7 +406,33 @@ ul.page-numbers li .next{ float: right; }
     width: 100%;
   }
   /* FILTERS */
+
+  /* MOBILE MENU SCROLL FIX */
+  body, html{
+		height: 100%;
+	}
+  #bs-example-navbar-collapse-1{
+    position: fixed;
+    z-index: 999999999;
+    width: 100%;
+    background-color: #1f2939;
+		margin-top: 0px;
+		height: 100%;
+  }
+	.sticky-transparent-header.affix{
+		height: 100%;
+	}
+
+	.navbar-nav{
+    position: relative;
+    padding-bottom: 65px;
+  }
+	.navbar-nav > li:last-child{
+		padding-bottom: 10px;
+	}
+
 }
+
 
 /* White header */
 @media(max-width: 425px){
