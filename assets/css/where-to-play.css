@@ -408,20 +408,20 @@ ul.page-numbers li .next{ float: right; }
   /* FILTERS */
 
   /* MOBILE MENU SCROLL FIX */
-  body, html{
+  /* body, html{
 		height: 100%;
-	}
-  #bs-example-navbar-collapse-1{
+	} */
+  /* #bs-example-navbar-collapse-1{
     position: fixed;
     z-index: 999999999;
     width: 100%;
     background-color: #1f2939;
 		margin-top: 0px;
 		height: 100%;
-  }
-	.sticky-transparent-header.affix{
+  } */
+	/* .sticky-transparent-header.affix{
 		height: 100%;
-	}
+	} */
 
 	.navbar-nav{
     position: relative;
