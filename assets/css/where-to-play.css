@@ -428,11 +428,11 @@ ul.page-numbers li .next{ float: right; }
 	}
 
 	#bs-example-navbar-collapse-1 {
-    max-height: 100vh;
-    overflow: scroll;
-    position: absolute;
-    width: 100%;
-    background: red;
+    max-height: 100vh !important;
+    overflow: scroll !important;
+    position: absolute !important;
+    width: 100% !important;
+    background: #1f2939 !important;
 	}
 
 	.navbar-nav{
