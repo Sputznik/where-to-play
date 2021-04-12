@@ -1,7 +1,8 @@
 <?php
-  global $post;
 
   add_shortcode('wtp_social_share', function( $atts ){
+
+    global $post;
 
     $atts = shortcode_atts( array(
       'style' 	=> '',
