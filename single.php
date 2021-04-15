@@ -21,7 +21,26 @@
     <?php endwhile;endif;?>
   </div>
   <div class="container-fluid">
-    <?php if( is_active_sidebar( 'single-post-footer' ) ){ dynamic_sidebar( 'single-post-footer' ); }?>
+    <?php
+      $banner_name = get_post_meta( get_the_ID(), 'wtp_form', true );
+      $args = array(
+        'post_type' => 'wtp-banner',
+        "posts_per_page" => 1,
+        'post_name__in'  => array( $banner_name )
+      );
+      $query = new WP_Query($args);
+      if( $query->have_posts() ){
+        while ( $query->have_posts() ) : $query->the_post();
+        the_content();
+        endwhile;
+      }
+      else{
+        if( is_active_sidebar( 'single-post-footer' ) ){
+          dynamic_sidebar( 'single-post-footer' );
+        }
+      }
+		 	wp_reset_postdata();
+		?>
   </div>
   <?php echo do_shortcode('[wtp_social_share style="sticky"]');?>
 
