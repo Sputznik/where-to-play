@@ -14,6 +14,20 @@ add_filter( 'orbit_post_type_vars', function( $orbit_types ){
 		'supports'	=> array( 'title', 'editor','thumbnail','excerpt' )
 	);
 
+	$orbit_types['wtp-banner'] = array(
+		'slug' 		=> 'wtp-banner',
+		'labels'	=> array(
+			'name' 					=> 'Banners',
+			'singular_name' => 'Banner',
+			'edit_item'			=> 'Edit Banner',
+			'add_new_item'  => 'Add New Banner',
+			'all_items'     =>  'All Banners'
+		),
+		'menu_icon'	=> 'dashicons-text-page',
+		'public'		=> true,
+		'supports'	=> array( 'title', 'editor' )
+	);
+
 	return $orbit_types;
 } );
 
