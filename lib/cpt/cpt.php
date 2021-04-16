@@ -92,7 +92,7 @@ add_filter( 'orbit_taxonomy_vars', function( $orbit_tax ){
 // RETURNS THE LIST OF PUBLISHED BANNERS
 function get_wtp_banners(){
 		$banner_list = array();
-		$banners = get_posts( array(  'post_type' => 'wtp-banner', 'post_status' => 'publish' ) );
+		$banners = get_posts( array(  'post_type' => 'wtp-banner', 'post_status' => 'publish', 'numberposts' => -1 ) );
 
 		foreach ( $banners as $banner ) {
 			$banner_list[$banner->post_name] = $banner->post_title;
