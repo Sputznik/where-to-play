@@ -107,11 +107,10 @@ function get_wtp_banners(){
 // REDIRECT SINGLE RESOURCE PAGE TO HOMEPAGE
 add_action( 'template_redirect', 'wtp_redirect_single_resource' );
 function wtp_redirect_single_resource(){
-  if ( !is_singular( 'resource' )  )
-    return;
-
+  if ( is_singular( 'resource' ) && ( is_user_logged_in() || !is_user_logged_in()  ) ){
 		wp_redirect( home_url(), 302 );
 		exit();
+	}
 }
 
 // REMOVES VIEW BUTON FROM CPT RESOURCE
