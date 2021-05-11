@@ -10,7 +10,7 @@ add_filter( 'orbit_post_type_vars', function( $orbit_types ){
 			'singular_name' => 'Resource',
 		),
 		'menu_icon'	=> 'dashicons-format-aside',
-		'public'		=> true,
+		'public'		=> false,
 		'supports'	=> array( 'title', 'editor','thumbnail','excerpt' )
 	);
 
@@ -100,3 +100,24 @@ function get_wtp_banners(){
 
 		return $banner_list;
 }
+
+
+
+
+// REDIRECT SINGLE RESOURCE PAGE TO HOMEPAGE
+add_action( 'template_redirect', 'wtp_redirect_single_resource' );
+function wtp_redirect_single_resource(){
+  if ( !is_singular( 'resource' )  )
+    return;
+
+		wp_redirect( home_url(), 302 );
+		exit();
+}
+
+// REMOVES VIEW BUTON FROM CPT RESOURCE
+function wtp_remove_actions( $actions ) {
+  if( get_post_type() === 'resource' )
+      unset( $actions['view'] );
+  return $actions;
+}
+add_filter( 'post_row_actions', 'wtp_remove_actions', 10, 1 );
