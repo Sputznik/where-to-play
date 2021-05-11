@@ -108,7 +108,7 @@ function get_wtp_banners(){
 add_action( 'template_redirect', 'wtp_redirect_single_resource' );
 function wtp_redirect_single_resource(){
   if ( is_singular( 'resource' ) &&  ! is_user_logged_in() ){
-		wp_redirect( home_url(), 302 );
+		wp_redirect( home_url() );
 		exit();
 	}
 }
