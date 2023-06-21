@@ -4,7 +4,7 @@
   foreach( $instance['wtp_ambassadors'] as $item ):
 
     $bio = $item['user_bio'];
-    $bio_excerpt = !empty( $bio ) ? substr($bio, 0, 100).'...' : '';
+    $bio_excerpt = !empty( $bio ) ? substr($bio, 0, 130).'...' : '';
     $image = wp_get_attachment_url( $item['user_image'] );
     $social_links = array(
       'web'   => !empty( $item['user_website'] ) ? $item['user_website'] : '',

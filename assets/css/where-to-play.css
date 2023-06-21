@@ -975,12 +975,17 @@ body.archive.category .archive-title{text-transform: capitalize;margin-bottom: 3
 @media(min-width: 769px){
   .wtp-ambassador-card {
     flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .wtp-ambassador-card .card-col-left {
+		padding:20px 0 20px 20px;
   }
 
   .wtp-ambassador-card .card-col-right {
     display: grid;
     padding: 20px;
-    grid-template-columns: 1fr 2fr 1fr;
+		grid-template-columns: 1fr 2fr 2fr;
   }
 
   .wtp-ambassador-card .bio-excerpt,
