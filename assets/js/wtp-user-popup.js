@@ -96,8 +96,20 @@ jQuery.fn.wtp_ambassador_popup = function() {
         bio            = $el.find('.bio').html(),
         social_links   = $el.data('social');
 
+
     // CREATES DYNAMIC USER MODAL
-		$el.on( 'click', function() { $el.createModal(); });
+		$el.on( 'click', function(e) {
+
+			// DISABLE MODAL ON SMALL SCREENS
+			if(jQuery(window).width() < 769){
+				e.preventDefault();
+	      e.stopPropagation();
+	      return false;
+	    }
+
+			$el.createModal();
+
+		});
 
     // WTP USER MODAL LAYOUT
     $el.createModal = function() {
@@ -181,5 +193,31 @@ jQuery(document).ready(function () {
 	jQuery('.wtp-ambassador-card .social-media a').on( 'click', function(e) {
 		e.stopPropagation();
 	});
+
+	// WTP AMBASSADORS READ MORE OR LESS
+	jQuery('.wtp-ambassador-card .bio-excerpt > button').click(function(e) {
+
+		// ENABLE READ MORE OR LESS ON SMALL SCREENS
+		if(jQuery(window).width() < 769){
+
+			var $el 						= jQuery(this),
+				 	$bio						= $el.siblings('.bio'),
+		 		 	$bio_excerpt		= $el.siblings('.bio-excerpt-inner');
+
+			if( $el.hasClass('read-more') ){
+		 	  $el.hide();
+				$bio_excerpt.hide();
+		 	  $el.siblings('button.read-less').show();
+				$bio.css("height","auto").slideToggle();
+			} else {
+		 	  $el.hide();
+				$bio.hide();
+				$bio_excerpt.show();
+		 	  $el.siblings('button.read-more').show();
+		 	}
+
+		}
+
+ });
 
 });

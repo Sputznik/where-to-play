@@ -38,11 +38,12 @@
             <span class="year-flag-text">AMBASSADOR <?php if($item['user_year']):?><strong><?php _e( $item['user_year'] );?></strong><?php endif;?></span>
           </span>
         </div>
-        <div class="bio" style="display:none;height:0;"><?php echo $item['user_bio'];?></div>
         <div class="bio-excerpt">
           <span class="card-section-title">ABOUT</span>
-          <?php echo $bio_excerpt;?>
-          <div class="read-more">Read more</div>
+          <div class="bio-excerpt-inner"><?php echo $bio_excerpt;?></div>
+          <div class="bio" style="display:none;height:0;"><?php echo $item['user_bio'];?></div>
+          <button class="read-more">Read more</button>
+          <button class="read-less">Read less</button>
         </div>
         <div class="key-projects" data-total-projects="<?php _e( count($item['key_projects']) );?>">
           <span>KEY PROJECTS</span>
@@ -52,6 +53,13 @@
             <?php endforeach;?>
           </ul>
         </div>
+        <?php if($item['user_website']):?>
+          <span class="website">
+            <a href="<?php _e( $item['user_website'] );?>" target="_blank">
+              <?php _e( explode('/', preg_replace('/https?:\/\/|www.|\/$/', '', $item['user_website']) )[0] );?>
+            </a>
+          </span>
+        <?php endif;?>
       </div>
     </div>
   <?php endforeach;?>
