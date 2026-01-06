@@ -2,7 +2,6 @@
 <div class="wtp-ambassadors">
   <?php
   foreach( $instance['wtp_ambassadors'] as $item ):
-
     $bio = $item['user_bio'];
     $bio_excerpt = !empty( $bio ) ? substr($bio, 0, 130).'...' : '';
     $image = wp_get_attachment_url( $item['user_image'] );
@@ -11,7 +10,9 @@
       'mail'  => !empty( $item['user_mail'] )    ? $item['user_mail'] : '',
       'li'    => !empty( $item['li_profile'] )   ? $item['li_profile'] : '',
       'tw'    => !empty( $item['tw_profile'] )   ? $item['tw_profile'] : ''
-    ); ?>
+    );
+    $total_projects = !empty( $item['key_projects'] ) ? count( $item['key_projects'] ) : 0;
+  ?>
     <div class="wtp-ambassador-card" data-behaviour="wtp-ambassador-popup" data-social='<?php _e( json_encode( $social_links ) );?>'>
       <div class="card-col-left">
         <div class="user-thumbnail-bg" style="background-image: url( '<?php _e( $image );?> ');"></div>
@@ -45,7 +46,7 @@
           <button class="read-more">Read more</button>
           <button class="read-less">Read less</button>
         </div>
-        <div class="key-projects" data-total-projects="<?php _e( count($item['key_projects']) );?>">
+        <div class="key-projects" data-total-projects="<?php echo $total_projects;?>">
           <span>KEY PROJECTS</span>
           <ul>
             <?php foreach( $item['key_projects'] as $project ):?>
