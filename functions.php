@@ -18,8 +18,9 @@ add_action('wp_enqueue_scripts',function(){
 	wp_enqueue_script('wtp-user-popup-js', get_stylesheet_directory_uri().'/assets/js/wtp-user-popup.js', array('jquery'), WTP_THEME_VERSION ); // SOW ACCORDION SCRIPT
 
 	if ( is_page_template( 'page-ai-workbook.php' ) ) {
-		wp_enqueue_style( 'ai-workbook-css', get_stylesheet_directory_uri() . '/assets/css/ai-workbook.css', array(), WTP_THEME_VERSION );
-		wp_enqueue_script( 'ai-workbook-js', get_stylesheet_directory_uri() . '/assets/js/ai-workbook.js', array(), WTP_THEME_VERSION, true );
+		$dir = get_stylesheet_directory();
+		wp_enqueue_style( 'ai-workbook-css', get_stylesheet_directory_uri() . '/assets/css/ai-workbook.css', array(), filemtime( $dir . '/assets/css/ai-workbook.css' ) );
+		wp_enqueue_script( 'ai-workbook-js', get_stylesheet_directory_uri() . '/assets/js/ai-workbook.js', array(), filemtime( $dir . '/assets/js/ai-workbook.js' ), true );
 	}
 
 },99);
