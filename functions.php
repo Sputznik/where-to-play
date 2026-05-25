@@ -13,9 +13,10 @@ add_action('wp_enqueue_scripts',function(){
 
   wp_enqueue_style('sp-child-css', get_stylesheet_directory_uri().'/assets/css/where-to-play.css', array('sp-core-style'), WTP_THEME_VERSION );
 
-	wp_enqueue_script('wtp-accordion-js', get_stylesheet_directory_uri().'/assets/js/wtp-accordion.js', array('jquery'), WTP_THEME_VERSION ); // SOW ACCORDION SCRIPT
-
-	wp_enqueue_script('wtp-user-popup-js', get_stylesheet_directory_uri().'/assets/js/wtp-user-popup.js', array('jquery'), WTP_THEME_VERSION ); // SOW ACCORDION SCRIPT
+	if ( ! is_page_template( 'page-ai-workbook.php' ) ) {
+		wp_enqueue_script('wtp-accordion-js', get_stylesheet_directory_uri().'/assets/js/wtp-accordion.js', array('jquery'), WTP_THEME_VERSION );
+		wp_enqueue_script('wtp-user-popup-js', get_stylesheet_directory_uri().'/assets/js/wtp-user-popup.js', array('jquery'), WTP_THEME_VERSION );
+	}
 
 	if ( is_page_template( 'page-ai-workbook.php' ) ) {
 		$dir = get_stylesheet_directory();
