@@ -1,7 +1,7 @@
 <?php
 
 if( !defined( 'WTP_THEME_VERSION' ) ) {
-  define( 'WTP_THEME_VERSION', '2.0.0' );
+  define( 'WTP_THEME_VERSION', '2.0.1' );
 }
 
 /*ENQUEUE STYLES*/
@@ -17,7 +17,20 @@ add_action('wp_enqueue_scripts',function(){
 
 	wp_enqueue_script('wtp-user-popup-js', get_stylesheet_directory_uri().'/assets/js/wtp-user-popup.js', array('jquery'), WTP_THEME_VERSION ); // SOW ACCORDION SCRIPT
 
+  if ( is_page_template( 'page-ai-workbook.php' ) ) {
+		wp_enqueue_style( 'wtp-ai-workbook-css', get_stylesheet_directory_uri().'/assets/css/ai-workbook.css', array(), WTP_THEME_VERSION );
+		wp_enqueue_script( 'wtp-ai-workbook-js', get_stylesheet_directory_uri().'/assets/js/ai-workbook.js', array(), WTP_THEME_VERSION, true );
+	}
+
 },99);
+
+// Emit the React bundle as a proper ES module script tag.
+add_filter( 'script_loader_tag', function( $tag, $handle, $src ) {
+	if ( $handle !== 'ai-workbook-js' ) {
+		return $tag;
+	}
+	return '<script type="module" crossorigin src="' . esc_url( $src ) . '"></script>' . "\n";
+}, 10, 3 );
 
 //Include Files
 include('lib/custom-header/header-functions.php');
