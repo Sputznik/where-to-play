@@ -6,8 +6,6 @@
 get_header();
 ?>
 
-<div class="container">
-	<div id="root"></div>
-</div>
+<div id="root"></div>
 
 <?php get_footer(); ?>
