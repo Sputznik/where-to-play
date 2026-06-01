@@ -1,7 +1,7 @@
 <?php
 
 if( !defined( 'WTP_THEME_VERSION' ) ) {
-  define( 'WTP_THEME_VERSION', '2.1.0' );
+  define( 'WTP_THEME_VERSION', '2.2.0' );
 }
 
 /*ENQUEUE STYLES*/
